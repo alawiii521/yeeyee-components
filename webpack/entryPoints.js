@@ -1,5 +1,11 @@
 const path = require('path');
 
-const entryPoints = {};
+const basePaths = {
+  YEEYEE_COMPONENTS: path.resolve(__dirname, '..', 'src', 'components'),
+};
+
+const entryPoints = {
+  'yeeyee-button': path.resolve(basePaths.YEEYEE_COMPONENTS, 'Button'),
+};
 
 module.exports = entryPoints;

@@ -12,6 +12,18 @@ module.exports = {
   entry: entryPoints,
   devtool: mode === 'development' ? 'source-map' : 'none',
   mode,
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
   output: {
     filename: '[name].js',
     publicPath: '/yeeyee-components/',

@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./public/yeeyee-components",
+    "noImplicitAny": true,
+    "jsx": "react",
+    "allowJs": true,
+    "sourceMap": true
+  }
+}

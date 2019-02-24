@@ -17,7 +17,10 @@
     "components",
     "html",
     "ui",
-    "javascript"
+    "javascript",
+    "lit-html",
+    "typescript",
+    "webpack"
   ],
   "author": "Ali Majed",
   "license": "ISC",
@@ -26,6 +29,8 @@
   },
   "homepage": "https://github.com/alawiii521/yeeyee-components#readme",
   "devDependencies": {
+    "ts-loader": "^5.3.3",
+    "typescript": "^3.3.3333",
     "webpack": "^4.29.5",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.0"

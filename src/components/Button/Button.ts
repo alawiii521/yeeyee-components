@@ -1,16 +1,11 @@
-import { html, render } from 'lit-html';
+import { html, TemplateResult } from 'lit-html';
+import YeeYeeComponent from '../YeeYeeComponent';
 
-class Button extends HTMLElement {
-  constructor() {
-    super();
-
-    this.attachShadow({ mode: 'open' });
-
-    const litTemplate = html`
-      <button>Hello YeeYee</button>
+class Button extends YeeYeeComponent {
+  protected render(): TemplateResult {
+    return html`
+      <button>Hello From YeeYee</button>
     `;
-
-    render(litTemplate, this.shadowRoot);
   }
 }
 

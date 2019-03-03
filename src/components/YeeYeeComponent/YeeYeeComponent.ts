@@ -9,13 +9,13 @@ abstract class YeeYeeComponent extends HTMLElement {
     this.yeeStyle = yeeStyle;
     this.attachShadow({ mode: 'open' });
 
-    const litTemplate = this.render();
+    const litTemplate: TemplateResult = this.render();
 
     this.litRender(litTemplate);
   }
 
-  private litRender(litTemplate: TemplateResult) {
-    const template = html`
+  private litRender(litTemplate: TemplateResult): void {
+    const template: TemplateResult = html`
       ${this.getStyle(this.yeeStyle)} ${litTemplate}
     `;
 

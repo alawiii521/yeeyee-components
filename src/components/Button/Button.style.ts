@@ -4,7 +4,7 @@ import { colorStyle } from '../../style/color.style';
 
 const values = {
   normal: `
-    font-size: ${defaultFontStyle.fontSize.normal}
+    font-size: ${defaultFontStyle.fontSize.small};
     padding: 0 ${paddingStyle.normal};
     height: 32px;
     line-height: 32px;

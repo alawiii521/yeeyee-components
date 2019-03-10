@@ -6,6 +6,7 @@ const basePaths = {
 
 const entryPoints = {
   'yeeyee-button': path.resolve(basePaths.YEEYEE_COMPONENTS, 'Button'),
+  'yeeyee-navbar': path.resolve(basePaths.YEEYEE_COMPONENTS, 'Navbar'),
 };
 
 module.exports = entryPoints;

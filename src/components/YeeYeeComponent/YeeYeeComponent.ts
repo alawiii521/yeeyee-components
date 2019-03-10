@@ -11,7 +11,9 @@ abstract class YeeYeeComponent extends HTMLElement {
 
     const litTemplate: TemplateResult = this.render();
 
-    this.litRender(litTemplate);
+    if (litTemplate) {
+      this.litRender(litTemplate);
+    }
   }
 
   private litRender(litTemplate: TemplateResult): void {

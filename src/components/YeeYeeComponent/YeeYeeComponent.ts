@@ -9,11 +9,7 @@ abstract class YeeYeeComponent extends HTMLElement {
     this.yeeStyle = yeeStyle;
     this.attachShadow({ mode: 'open' });
 
-    const litTemplate: TemplateResult = this.render();
-
-    if (litTemplate) {
-      this.litRender(litTemplate);
-    }
+    this.update();
   }
 
   private litRender(litTemplate: TemplateResult): void {
@@ -27,9 +23,17 @@ abstract class YeeYeeComponent extends HTMLElement {
   private getStyle(style: string): TemplateResult {
     return html`
       <style>
-        ${this.yeeStyle}
+        ${style}
       </style>
     `;
+  }
+
+  protected update(): void {
+    const litTemplate: TemplateResult = this.render();
+
+    if (litTemplate) {
+      this.litRender(litTemplate);
+    }
   }
 
   protected abstract render(): TemplateResult;

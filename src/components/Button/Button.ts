@@ -12,7 +12,7 @@ class Button extends YeeYeeComponent {
   }
 
   protected connectedCallback() {
-    this.update();
+    this.render();
   }
 
   protected getTemplateResult(): TemplateResult {

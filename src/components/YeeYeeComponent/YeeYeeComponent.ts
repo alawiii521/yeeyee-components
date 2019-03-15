@@ -26,7 +26,7 @@ abstract class YeeYeeComponent extends HTMLElement {
     `;
   }
 
-  protected update(): void {
+  protected render(): void {
     const litTemplate: TemplateResult = this.getTemplateResult();
 
     if (litTemplate) {

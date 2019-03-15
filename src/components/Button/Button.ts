@@ -4,14 +4,18 @@ import {
   defaultButtonStyle,
   ripple,
   rippleDurationMilli,
-} from './Button.style.ts';
+} from './Button.style';
 
 class Button extends YeeYeeComponent {
   constructor() {
     super(defaultButtonStyle + ripple);
   }
 
-  protected render(): TemplateResult {
+  protected connectedCallback() {
+    this.update();
+  }
+
+  protected getTemplateResult(): TemplateResult {
     return html`
       <button class="rippleContainer" @click=${this.onClick}>
         <slot>NO LABEL</slot>

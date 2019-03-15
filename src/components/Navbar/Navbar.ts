@@ -14,7 +14,7 @@ class Navbar extends YeeYeeComponent {
     window.document.body.style.margin = '0';
   }
 
-  protected render(): TemplateResult {
+  protected getTemplateResult(): TemplateResult {
     return html`
       <nav>
         ${this.renderName()}

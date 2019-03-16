@@ -1,14 +1,11 @@
 import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent';
-import {
-  defaultButtonStyle,
-  ripple,
-  rippleDurationMilli,
-} from './Button.style';
+import { defaultButtonStyle } from './Button.style';
+import { rippleRenderCss, renderRipple } from '../../animations';
 
 class Button extends YeeYeeComponent {
   constructor() {
-    super(defaultButtonStyle + ripple);
+    super(defaultButtonStyle + rippleRenderCss);
   }
 
   protected connectedCallback() {
@@ -17,29 +14,16 @@ class Button extends YeeYeeComponent {
 
   protected getTemplateResult(): TemplateResult {
     return html`
-      <button class="rippleContainer" @click=${this.onClick}>
+      <button @click=${(e: MouseEvent) => this.onClick(e)}>
         <slot>NO LABEL</slot>
       </button>
     `;
   }
 
   private onClick(e: MouseEvent): void {
-    const diameter = Math.max(this.clientWidth, this.clientHeight);
-    const rect = this.getBoundingClientRect();
+    const domElement = this.shadowRoot.querySelector('button');
 
-    const circle = document.createElement('div');
-
-    circle.style.width = circle.style.height = diameter + 'px';
-    circle.style.left = e.clientX - rect.left - diameter / 2 + 'px';
-    circle.style.top = e.clientY - rect.top - diameter / 2 + 'px';
-
-    circle.classList.add('ripple');
-
-    this.appendChild(circle);
-
-    setTimeout(() => {
-      this.removeChild(circle);
-    }, rippleDurationMilli);
+    renderRipple(e.clientX, e.clientY, domElement);
   }
 }
 

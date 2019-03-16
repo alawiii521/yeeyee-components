@@ -2,6 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import YeeYeeComponent from '../YeeYeeComponent/index';
 import { ICON_PATH } from '../../constants/urls';
+import { defaultIconStyle } from './Icon.style';
 
 const Attributes = Object.freeze({
   NAME: 'name',
@@ -11,6 +12,10 @@ const Attributes = Object.freeze({
 });
 
 class Icon extends YeeYeeComponent {
+  constructor() {
+    super(defaultIconStyle);
+  }
+
   static get observedAttributes() {
     return [
       Attributes.COLOR,

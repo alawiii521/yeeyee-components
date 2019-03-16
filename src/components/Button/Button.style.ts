@@ -35,29 +35,4 @@ const defaultButtonStyle = css`
   }
 `;
 
-const rippleDurationMilli = 600;
-
-const ripple = css`
-  .rippleContainer {
-    position: relative;
-    overflow: hidden;
-    transform: translate3d(0, 0, 0);
-  }
-
-  .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: scale(0);
-    animation: ripple ${rippleDurationMilli / 1000 + 's'} linear;
-  }
-
-  @keyframes ripple {
-    to {
-      transform: scale(2);
-      opacity: 0;
-    }
-  }
-`;
-
-export { defaultButtonStyle, ripple, rippleDurationMilli };
+export { defaultButtonStyle };

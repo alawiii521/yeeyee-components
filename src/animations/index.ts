@@ -1,3 +1,4 @@
 import fadeIn from './fadeIn';
+import { rippleRenderCss, renderRipple, rippleCss } from './ripple';
 
-export { fadeIn };
+export { fadeIn, rippleRenderCss, renderRipple, rippleCss };

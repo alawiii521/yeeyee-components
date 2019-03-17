@@ -34,6 +34,10 @@ abstract class YeeYeeComponent extends HTMLElement {
     }
   }
 
+  protected emit(name: string, detail: object): void {
+    this.dispatchEvent(new CustomEvent(name, { detail, bubbles: true }));
+  }
+
   protected abstract getTemplateResult(): TemplateResult;
 }
 

@@ -26,6 +26,12 @@ abstract class YeeYeeComponent extends HTMLElement {
     `;
   }
 
+  protected connectedCallback(): void {
+    console.log('connectedCallback');
+
+    this.connected();
+  }
+
   protected render(): void {
     const litTemplate: TemplateResult = this.getTemplateResult();
 
@@ -39,7 +45,9 @@ abstract class YeeYeeComponent extends HTMLElement {
     oldValue: string,
     newValue: string
   ): void {
-    this.update(name, newValue, oldValue);
+    if (this.isConnected) {
+      this.update(name, newValue, oldValue);
+    }
   }
 
   protected emit(name: string, detail: object): void {
@@ -53,6 +61,8 @@ abstract class YeeYeeComponent extends HTMLElement {
     newValue: string,
     oldValue?: string
   ): void;
+
+  protected abstract connected(): void;
 }
 
 export default YeeYeeComponent;

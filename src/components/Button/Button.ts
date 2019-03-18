@@ -14,6 +14,8 @@ class Button extends YeeYeeComponent {
 
   protected update(name: string, newValue: string, oldValue: string) {}
 
+  protected connected(): void {}
+
   protected getTemplateResult(): TemplateResult {
     return html`
       <button @click=${(e: MouseEvent) => this.onClick(e)}>

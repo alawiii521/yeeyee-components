@@ -29,6 +29,8 @@ class IconButton extends YeeYeeComponent {
     }
   }
 
+  protected connected(): void {}
+
   protected getTemplateResult(): TemplateResult {
     const name = this.getName();
     const color = this.getColor();

@@ -37,6 +37,7 @@ class Icon extends YeeYeeComponent {
   }
 
   protected update(name: string, newValue: string): void {
+    console.log(name);
     if (name === Attributes.NAME) {
       this.create(newValue);
     } else if (this.getIcon() !== null) {
@@ -51,6 +52,12 @@ class Icon extends YeeYeeComponent {
         this.render();
       }
     }
+  }
+
+  protected connected(): void {
+    console.log('connected');
+
+    this.create(this.getName());
   }
 
   private setIcon(icon: HTMLTemplateElement): void {
@@ -83,6 +90,10 @@ class Icon extends YeeYeeComponent {
 
   private getColor(): string {
     return this.getAttribute(Attributes.COLOR);
+  }
+
+  private getName(): string {
+    return this.getAttribute(Attributes.NAME);
   }
 
   private create(icon: string): void {

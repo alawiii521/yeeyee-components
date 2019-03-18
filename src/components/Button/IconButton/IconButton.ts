@@ -21,11 +21,7 @@ class IconButton extends YeeYeeComponent {
     this.render();
   }
 
-  protected attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string
-  ): void {
+  protected update(name: string, newValue: string): void {
     if (name === Attributes.NAME && newValue !== null) {
       this.render();
     } else if (name === Attributes.COLOR && newValue !== null) {

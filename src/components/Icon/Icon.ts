@@ -36,11 +36,7 @@ class Icon extends YeeYeeComponent {
       : null;
   }
 
-  protected attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string
-  ): void {
+  protected update(name: string, newValue: string): void {
     if (name === Attributes.NAME) {
       this.create(newValue);
     } else if (this.getIcon() !== null) {

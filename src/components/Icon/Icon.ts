@@ -4,25 +4,18 @@ import YeeYeeComponent from '../YeeYeeComponent/index';
 import { ICON_PATH } from '../../constants/urls';
 import { defaultIconStyle } from './Icon.style';
 
-const Attributes = Object.freeze({
-  NAME: 'name',
-  COLOR: 'color',
-  WIDTH: 'width',
-  HEIGHT: 'height',
-});
-
 class Icon extends YeeYeeComponent {
-  constructor() {
-    super(defaultIconStyle);
-  }
+  static NAME: string = 'name';
+  static COLOR: string = 'color';
+  static WIDTH: string = 'width';
+  static HEIGHT: string = 'height';
 
   static get observedAttributes() {
-    return [
-      Attributes.COLOR,
-      Attributes.NAME,
-      Attributes.WIDTH,
-      Attributes.HEIGHT,
-    ];
+    return [Icon.COLOR, Icon.NAME, Icon.WIDTH, Icon.HEIGHT];
+  }
+
+  constructor() {
+    super(defaultIconStyle);
   }
 
   private icon: HTMLTemplateElement = null;
@@ -37,17 +30,16 @@ class Icon extends YeeYeeComponent {
   }
 
   protected update(name: string, newValue: string): void {
-    console.log(name);
-    if (name === Attributes.NAME) {
+    if (name === Icon.NAME) {
       this.create(newValue);
     } else if (this.getIcon() !== null) {
-      if (name === Attributes.COLOR) {
+      if (name === Icon.COLOR) {
         this.setColor(newValue);
         this.render();
-      } else if (name === Attributes.WIDTH) {
+      } else if (name === Icon.WIDTH) {
         this.setWidth(newValue);
         this.render();
-      } else if (name === Attributes.HEIGHT) {
+      } else if (name === Icon.HEIGHT) {
         this.setHeight(newValue);
         this.render();
       }
@@ -55,9 +47,7 @@ class Icon extends YeeYeeComponent {
   }
 
   protected connected(): void {
-    console.log('connected');
-
-    this.create(this.getName());
+    this.create(this.get(Icon.NAME));
   }
 
   private setIcon(icon: HTMLTemplateElement): void {
@@ -69,31 +59,15 @@ class Icon extends YeeYeeComponent {
   }
 
   private setHeight(height: string): void {
-    this.getIcon().content.firstElementChild.setAttribute('height', height);
-  }
-
-  private getHeight(): string {
-    return this.getAttribute('height');
+    this.getIcon().content.firstElementChild.setAttribute(Icon.HEIGHT, height);
   }
 
   private setWidth(width: string): void {
-    this.getIcon().content.firstElementChild.setAttribute('width', width);
-  }
-
-  private getWidth(): string {
-    return this.getAttribute(Attributes.WIDTH);
+    this.getIcon().content.firstElementChild.setAttribute(Icon.WIDTH, width);
   }
 
   private setColor(color: string): void {
     this.getIcon().content.firstElementChild.setAttribute('fill', color);
-  }
-
-  private getColor(): string {
-    return this.getAttribute(Attributes.COLOR);
-  }
-
-  private getName(): string {
-    return this.getAttribute(Attributes.NAME);
   }
 
   private create(icon: string): void {
@@ -103,9 +77,9 @@ class Icon extends YeeYeeComponent {
         template.innerHTML = icon;
         this.setIcon(template);
 
-        const color = this.getColor();
-        const width = this.getWidth();
-        const height = this.getHeight();
+        const color = this.get(Icon.COLOR);
+        const width = this.get(Icon.WIDTH);
+        const height = this.get(Icon.HEIGHT);
 
         this.setColor(color);
 

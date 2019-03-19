@@ -1,12 +1,13 @@
 import { TemplateResult, render, html } from 'lit-html';
 
 abstract class YeeYeeComponent extends HTMLElement {
-  yeeStyle: string;
+  protected yeeStyle: string;
 
   constructor(yeeStyle?: string) {
     super();
 
     this.yeeStyle = yeeStyle;
+
     this.attachShadow({ mode: 'open' });
   }
 
@@ -27,8 +28,6 @@ abstract class YeeYeeComponent extends HTMLElement {
   }
 
   protected connectedCallback(): void {
-    console.log('connectedCallback');
-
     this.connected();
   }
 
@@ -48,6 +47,10 @@ abstract class YeeYeeComponent extends HTMLElement {
     if (this.isConnected) {
       this.update(name, newValue, oldValue);
     }
+  }
+
+  protected get(name: string): string {
+    return this.getAttribute(name);
   }
 
   protected emit(name: string, detail: object): void {

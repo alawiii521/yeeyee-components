@@ -3,18 +3,16 @@ import YeeYeeComponent from '../../YeeYeeComponent';
 import { defaultIconButtonStyle } from './IconButton.style';
 import { rippleCss } from '../../../animations/index';
 
-const Attributes = Object.freeze({
-  NAME: 'name',
-  COLOR: 'color',
-});
-
 class IconButton extends YeeYeeComponent {
-  constructor() {
-    super(defaultIconButtonStyle + rippleCss);
-  }
+  static NAME: string = 'name';
+  static COLOR: string = 'color';
 
   static get observedAttributes() {
-    return [Attributes.COLOR, Attributes.NAME];
+    return [IconButton.COLOR, IconButton.NAME];
+  }
+
+  constructor() {
+    super(defaultIconButtonStyle + rippleCss);
   }
 
   protected connectedCallback() {
@@ -22,9 +20,9 @@ class IconButton extends YeeYeeComponent {
   }
 
   protected update(name: string, newValue: string): void {
-    if (name === Attributes.NAME && newValue !== null) {
+    if (name === IconButton.NAME && newValue !== null) {
       this.render();
-    } else if (name === Attributes.COLOR && newValue !== null) {
+    } else if (name === IconButton.COLOR && newValue !== null) {
       this.render();
     }
   }
@@ -32,22 +30,14 @@ class IconButton extends YeeYeeComponent {
   protected connected(): void {}
 
   protected getTemplateResult(): TemplateResult {
-    const name = this.getName();
-    const color = this.getColor();
+    const name: string = this.get(IconButton.NAME);
+    const color = this.get(IconButton.COLOR);
 
     return html`
       <button class="ripple">
         <yeeyee-icon color=${color} name=${name}></yeeyee-icon>
       </button>
     `;
-  }
-
-  private getName(): string {
-    return this.getAttribute(Attributes.NAME);
-  }
-
-  private getColor(): string {
-    return this.getAttribute(Attributes.COLOR);
   }
 }
 

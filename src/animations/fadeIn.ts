@@ -11,7 +11,7 @@ const animation = css`
     }
   }
 
-  .fadeIn {
+  .fade-in {
     animation-name: fadeIn;
   }
 `;

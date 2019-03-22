@@ -13,6 +13,7 @@ const entryPoints = {
     'Button',
     'IconButton'
   ),
+  'yeeyee-overlay': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'Overlay'),
 };
 
 module.exports = entryPoints;

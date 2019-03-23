@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit-html';
-import YeeYeeComponent from '../../YeeYeeComponent';
+import YeeYeeComponent from '../YeeYeeComponent';
 import { defaultIconButtonStyle } from './IconButton.style';
-import { rippleCss } from '../../../animations/index';
+import { rippleCss } from '../../animations/index';
 
 class IconButton extends YeeYeeComponent {
   static NAME: string = 'name';

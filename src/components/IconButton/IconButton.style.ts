@@ -1,5 +1,5 @@
-import { css } from '../../../style/utilsStyle';
-import { colorStyle } from '../../../style/color.style';
+import { css } from '../../style/utilsStyle';
+import { colorStyle } from '../../style/color.style';
 
 const defaultIconButtonStyle = css`
   button {

@@ -1,6 +1,8 @@
 import { css } from '../style/utilsStyle';
 
-const animation = css`
+const name: string = 'fade-in';
+
+const style = css`
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -11,9 +13,9 @@ const animation = css`
     }
   }
 
-  .fade-in {
+  .${name} {
     animation-name: fadeIn;
   }
 `;
 
-export default animation;
+export default { style, name };

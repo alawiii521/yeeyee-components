@@ -6,13 +6,18 @@ import fadeOut from '../../animations/fadeOut';
 
 class Overlay extends YeeYeeComponent {
   static OPEN: string = 'open';
-  static ANIMATION_END: string = 'animationend';
+  static Event = Object.freeze({
+    ANIMATION_END: 'animationend',
+    CLOSE: 'close',
+  });
+
   static Animation = Object.freeze({
     OPEN: 'open',
     CLOSE: 'close',
   });
 
   private open: boolean = false;
+  private currentAnimation: string = '';
 
   static get observedAttributes() {
     return [Overlay.OPEN];
@@ -22,51 +27,70 @@ class Overlay extends YeeYeeComponent {
     return html`
       <style>
         ${overlayStyle.default}
-        ${fadeIn}
-        ${fadeOut}
+        ${fadeIn.style}
+        ${fadeOut.style}
         ${overlayStyle.color()}
       </style>
-      ${this.hasAttribute(Overlay.OPEN)
+      ${this.open
         ? html`
             <div
-              class=${this.open ? 'fade-in' : 'fade-out'}
-              @click=${() => this.handleClose()}
+              class=${this.currentAnimation}
+              @click=${() => this.handleOverlayClick()}
             ></div>
           `
         : ''}
     `;
   }
 
+  private handleOverlayClick() {
+    this.removeAttribute(Overlay.OPEN);
+  }
+
   private handleClose(): void {
+    this.setAnimation(fadeOut.name);
+    this.render();
+    this.emit(Overlay.Event.CLOSE, {});
+    setTimeout(() => this.onFadeOutEnd(), animationDuration);
+  }
+
+  private handleOpen(): void {
+    this.open = true;
+    this.fadeIn();
+    this.render();
+  }
+
+  private fadeIn() {
+    this.setAnimation(fadeIn.name);
+    setTimeout(() => this.onFadeInEnd(), animationDuration);
+  }
+
+  private setAnimation(name: string): void {
+    this.currentAnimation = name;
+  }
+
+  private onFadeOutEnd() {
     this.open = false;
     this.render();
-    setTimeout(() => this.onFadedOut(), animationDuration);
+    this.emit(Overlay.Event.ANIMATION_END, { type: Overlay.Animation.CLOSE });
   }
 
-  private onFadedOut() {
-    this.removeAttribute(Overlay.OPEN);
-    this.emit(Overlay.ANIMATION_END, { type: Overlay.Animation.CLOSE });
-  }
-
-  private onFadedIn() {
-    this.emit(Overlay.ANIMATION_END, { type: Overlay.Animation.OPEN });
+  private onFadeInEnd() {
+    this.emit(Overlay.Event.ANIMATION_END, { type: Overlay.Animation.OPEN });
   }
 
   protected connected() {
-    this.open = this.hasAttribute(Overlay.OPEN);
-    if (this.open) {
-      setTimeout(() => this.onFadedIn(), animationDuration);
+    if (this.hasAttribute(Overlay.OPEN)) {
+      this.handleOpen();
     }
-    this.render();
   }
 
   protected update(name: string, newValue: string, oldValue: string) {
     if (name === Overlay.OPEN) {
-      this.open = this.hasAttribute(Overlay.OPEN);
-      if (this.open) {
-        setTimeout(() => this.onFadedIn(), animationDuration);
+      if (this.hasAttribute(Overlay.OPEN)) {
+        this.handleOpen();
+      } else {
+        this.handleClose();
       }
-      this.render();
     }
   }
 }

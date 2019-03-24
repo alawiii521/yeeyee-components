@@ -12,6 +12,7 @@ const defaultStyle = css`
     bottom: 0;
     right: 0;
     left: 0;
+    z-index: 50;
     animation-fill-mode: both;
     animation-duration: ${animationDuration.toString()}ms;
   }

@@ -3,6 +3,7 @@ const colorStyle = {
   primaryLight: '#42a5f5',
   primary: '#2196f3',
   primaryDark: '#1e88e5',
+  textColor: '#444',
   borderColor: '#ccc',
 };
 

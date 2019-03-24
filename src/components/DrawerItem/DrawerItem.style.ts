@@ -12,6 +12,7 @@ const defaultStyle = css`
     font-weight: bold;
     border: solid 0 ${colorStyle.borderColor};
     border-bottom-width: 1px;
+    text-align: left;
   }
 
   a:hover {

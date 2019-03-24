@@ -6,7 +6,7 @@ import { css } from '../../style/utilsStyle';
 const values = {
   normal: `
     font-size: ${defaultFontStyle.fontSize.small};
-    padding: 0 ${paddingStyle.normal};
+    padding: 0 ${paddingStyle.xxLarge};
     height: 32px;
     line-height: 32px;
   `,

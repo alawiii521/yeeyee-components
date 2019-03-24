@@ -11,10 +11,6 @@ class IconButton extends YeeYeeComponent {
     return [IconButton.COLOR, IconButton.NAME];
   }
 
-  protected connectedCallback() {
-    this.litRender();
-  }
-
   protected update(name: string, newValue: string): void {
     if (name === IconButton.NAME && newValue !== null) {
       this.litRender();
@@ -23,7 +19,9 @@ class IconButton extends YeeYeeComponent {
     }
   }
 
-  protected connected(): void {}
+  protected connected(): void {
+    this.litRender();
+  }
 
   protected render(): TemplateResult {
     const name: string = this.get(IconButton.NAME);

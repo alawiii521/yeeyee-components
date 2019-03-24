@@ -4,13 +4,11 @@ import buttonStyle from './Button.style';
 import { rippleRenderCss, renderRipple } from '../../animations';
 
 class Button extends YeeYeeComponent {
-  protected connectedCallback() {
-    this.litRender();
-  }
-
   protected update(name: string, newValue: string, oldValue: string) {}
 
-  protected connected(): void {}
+  protected connected(): void {
+    this.litRender();
+  }
 
   protected render(): TemplateResult {
     return html`

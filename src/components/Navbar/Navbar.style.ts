@@ -1,6 +1,7 @@
 import { css } from '../../style/utilsStyle';
 import { colorStyle } from '../../style/color.style';
 import { defaultFontStyle } from '../../style/font.style';
+import { paddingStyle } from '../../style/padding.style';
 
 const defaultNavbarStyle = css`
   nav {
@@ -19,6 +20,10 @@ const defaultNavbarStyle = css`
     font-weight: bold;
     text-decoration: none;
     font-size: ${defaultFontStyle.fontSize.xLarge};
+  }
+
+  yeeyee-icon-button {
+    margin-right: ${paddingStyle.xxLarge};
   }
 `;
 

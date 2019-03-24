@@ -14,6 +14,7 @@ const entryPoints = {
     'IconButton'
   ),
   'yeeyee-overlay': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'Overlay'),
+  'yeeyee-drawer-item': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'DrawerItem'),
 };
 
 module.exports = entryPoints;

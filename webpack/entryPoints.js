@@ -9,10 +9,7 @@ const entryPoints = {
   'yeeyee-navbar': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'Navbar'),
   'yeeyee-icon': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'Icon'),
   'yeeyee-button-icon': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'IconButton'),
-    BasePaths.YEEYEE_COMPONENTS,
-    'Button',
-    'IconButton'
-  ),
+  'yeeyee-drawer': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'Drawer'),
   'yeeyee-overlay': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'Overlay'),
   'yeeyee-drawer-item': path.resolve(BasePaths.YEEYEE_COMPONENTS, 'DrawerItem'),
 };

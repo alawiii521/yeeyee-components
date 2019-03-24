@@ -25,6 +25,14 @@ const defaultNavbarStyle = css`
   yeeyee-icon-button {
     margin-right: ${paddingStyle.xxLarge};
   }
+
+  .action-bar {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
 `;
 
 export { defaultNavbarStyle };

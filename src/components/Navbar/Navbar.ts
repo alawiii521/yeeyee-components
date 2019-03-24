@@ -35,6 +35,9 @@ class Navbar extends YeeYeeComponent {
         <yeeyee-drawer ?open=${this.hasAttribute(Navbar.OPEN)}>
           <slot></slot>
         </yeeyee-drawer>
+        <div class="action-bar">
+          <slot name="action-bar"></slot>
+        </div>
         <yeeyee-overlay
           ?open=${this.hasAttribute(Navbar.OPEN)}
           @close=${() => this.handleOverlayClick()}

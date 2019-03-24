@@ -14,7 +14,7 @@ class Navbar extends YeeYeeComponent {
 
   protected update(name: string, newValue: string, oldValue: string): void {
     if (name === Navbar.OPEN) {
-      this.render();
+      this.litRender();
     }
   }
 
@@ -57,7 +57,7 @@ class Navbar extends YeeYeeComponent {
 
   protected connected(): void {
     window.document.body.style.margin = '0';
-    this.render();
+    this.litRender();
   }
 
   private createMenuButton(): TemplateResult {

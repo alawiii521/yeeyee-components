@@ -16,7 +16,7 @@ class Drawer extends YeeYeeComponent {
   }
 
   protected connected() {
-    this.render();
+    this.litRender();
   }
 
   protected getTemplateResult(): TemplateResult {
@@ -37,7 +37,7 @@ class Drawer extends YeeYeeComponent {
 
   protected update(name: string, newValue: string, oldValue: string) {
     if (name === Drawer.OPEN) {
-      this.render();
+      this.litRender();
     }
   }
 }

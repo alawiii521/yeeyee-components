@@ -7,20 +7,15 @@ abstract class YeeYeeComponent extends HTMLElement {
     this.attachShadow({ mode: 'open' });
   }
 
-  private litRender(litTemplate: TemplateResult): void {
-    render(litTemplate, this.shadowRoot);
+  protected litRender(): void {
+    const litTemplate: TemplateResult = this.getTemplateResult();
+    if (litTemplate) {
+      render(litTemplate, this.shadowRoot);
+    }
   }
 
   protected connectedCallback(): void {
     this.connected();
-  }
-
-  protected render(): void {
-    const litTemplate: TemplateResult = this.getTemplateResult();
-
-    if (litTemplate) {
-      this.litRender(litTemplate);
-    }
   }
 
   protected attributeChangedCallback(

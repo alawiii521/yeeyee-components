@@ -21,12 +21,12 @@ class DrawerItem extends YeeYeeComponent {
   }
 
   protected connected() {
-    this.render();
+    this.litRender();
   }
 
   protected update(name: string, newValue: string, oldValue: string) {
     if (name === DrawerItem.DESTINATION) {
-      this.render();
+      this.litRender();
     }
   }
 }

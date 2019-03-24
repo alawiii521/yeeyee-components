@@ -34,13 +34,13 @@ class Icon extends YeeYeeComponent {
     } else if (this.getIcon() !== null) {
       if (name === Icon.COLOR) {
         this.setColor(newValue);
-        this.render();
+        this.litRender();
       } else if (name === Icon.WIDTH) {
         this.setWidth(newValue);
-        this.render();
+        this.litRender();
       } else if (name === Icon.HEIGHT) {
         this.setHeight(newValue);
-        this.render();
+        this.litRender();
       }
     }
   }
@@ -89,7 +89,7 @@ class Icon extends YeeYeeComponent {
         if (height) {
           this.setHeight(height);
         }
-        this.render();
+        this.litRender();
       } else {
         console.error('no icon was downloaded');
       }

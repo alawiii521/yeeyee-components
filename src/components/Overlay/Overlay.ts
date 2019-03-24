@@ -48,7 +48,7 @@ class Overlay extends YeeYeeComponent {
 
   private handleClose(): void {
     this.setAnimation(fadeOut.name);
-    this.render();
+    this.litRender();
     this.emit(Overlay.Event.CLOSE, {});
     setTimeout(() => this.onFadeOutEnd(), animationDuration);
   }
@@ -56,7 +56,7 @@ class Overlay extends YeeYeeComponent {
   private handleOpen(): void {
     this.open = true;
     this.fadeIn();
-    this.render();
+    this.litRender();
   }
 
   private fadeIn() {
@@ -70,7 +70,7 @@ class Overlay extends YeeYeeComponent {
 
   private onFadeOutEnd() {
     this.open = false;
-    this.render();
+    this.litRender();
     this.emit(Overlay.Event.ANIMATION_END, { type: Overlay.Animation.CLOSE });
   }
 

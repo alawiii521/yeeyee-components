@@ -12,14 +12,14 @@ class IconButton extends YeeYeeComponent {
   }
 
   protected connectedCallback() {
-    this.render();
+    this.litRender();
   }
 
   protected update(name: string, newValue: string): void {
     if (name === IconButton.NAME && newValue !== null) {
-      this.render();
+      this.litRender();
     } else if (name === IconButton.COLOR && newValue !== null) {
-      this.render();
+      this.litRender();
     }
   }
 

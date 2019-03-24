@@ -5,7 +5,7 @@ import { rippleRenderCss, renderRipple } from '../../animations';
 
 class Button extends YeeYeeComponent {
   protected connectedCallback() {
-    this.render();
+    this.litRender();
   }
 
   protected update(name: string, newValue: string, oldValue: string) {}

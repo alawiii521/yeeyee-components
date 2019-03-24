@@ -12,7 +12,7 @@ class Button extends YeeYeeComponent {
 
   protected connected(): void {}
 
-  protected getTemplateResult(): TemplateResult {
+  protected render(): TemplateResult {
     return html`
       <style>
         ${buttonStyle.default}

@@ -9,7 +9,7 @@ class DrawerItem extends YeeYeeComponent {
     return [DrawerItem.DESTINATION];
   }
 
-  protected getTemplateResult() {
+  protected render() {
     return html`
       <style>
         ${DrawerItemStyle.default}

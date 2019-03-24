@@ -18,7 +18,7 @@ class Navbar extends YeeYeeComponent {
     }
   }
 
-  protected getTemplateResult(): TemplateResult {
+  protected render(): TemplateResult {
     return html`
       <style>
         ${navbarStyle.default}

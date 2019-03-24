@@ -23,7 +23,7 @@ class Overlay extends YeeYeeComponent {
     return [Overlay.OPEN];
   }
 
-  protected getTemplateResult() {
+  protected render() {
     return html`
       <style>
         ${overlayStyle.default}

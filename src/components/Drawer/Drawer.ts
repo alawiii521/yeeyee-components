@@ -19,7 +19,7 @@ class Drawer extends YeeYeeComponent {
     this.litRender();
   }
 
-  protected getTemplateResult(): TemplateResult {
+  protected render(): TemplateResult {
     return html`
       <style>
         ${drawerStyle.default}

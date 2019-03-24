@@ -16,7 +16,7 @@ class Icon extends YeeYeeComponent {
 
   private icon: HTMLTemplateElement = null;
 
-  protected getTemplateResult(): TemplateResult {
+  protected render(): TemplateResult {
     const icon = this.getIcon();
     return icon
       ? html`

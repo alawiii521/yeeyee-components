@@ -8,7 +8,7 @@ abstract class YeeYeeComponent extends HTMLElement {
   }
 
   protected litRender(): void {
-    const litTemplate: TemplateResult = this.getTemplateResult();
+    const litTemplate: TemplateResult = this.render();
     if (litTemplate) {
       render(litTemplate, this.shadowRoot);
     }
@@ -36,7 +36,7 @@ abstract class YeeYeeComponent extends HTMLElement {
     this.dispatchEvent(new CustomEvent(name, { detail, bubbles: true }));
   }
 
-  protected abstract getTemplateResult(): TemplateResult;
+  protected abstract render(): TemplateResult;
 
   protected abstract update(
     name: string,

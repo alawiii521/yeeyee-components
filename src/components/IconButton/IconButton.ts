@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent';
-import { defaultIconButtonStyle } from './IconButton.style';
+import iconButtonStyle from './IconButton.style';
 import { rippleCss } from '../../animations/index';
 
 class IconButton extends YeeYeeComponent {
@@ -9,10 +9,6 @@ class IconButton extends YeeYeeComponent {
 
   static get observedAttributes() {
     return [IconButton.COLOR, IconButton.NAME];
-  }
-
-  constructor() {
-    super(defaultIconButtonStyle + rippleCss);
   }
 
   protected connectedCallback() {
@@ -34,6 +30,10 @@ class IconButton extends YeeYeeComponent {
     const color = this.get(IconButton.COLOR);
 
     return html`
+      <style>
+        ${iconButtonStyle.default}
+        ${rippleCss}
+      </style>
       <button class="ripple">
         <yeeyee-icon color=${color} name=${name}></yeeyee-icon>
       </button>

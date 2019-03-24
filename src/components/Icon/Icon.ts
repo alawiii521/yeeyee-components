@@ -2,7 +2,7 @@ import { html, TemplateResult } from 'lit-html';
 import { unsafeHTML } from 'lit-html/directives/unsafe-html.js';
 import YeeYeeComponent from '../YeeYeeComponent/index';
 import { ICON_PATH } from '../../constants/urls';
-import { defaultIconStyle } from './Icon.style';
+import iconStyle from './Icon.style';
 
 class Icon extends YeeYeeComponent {
   static NAME: string = 'name';
@@ -14,16 +14,15 @@ class Icon extends YeeYeeComponent {
     return [Icon.COLOR, Icon.NAME, Icon.WIDTH, Icon.HEIGHT];
   }
 
-  constructor() {
-    super(defaultIconStyle);
-  }
-
   private icon: HTMLTemplateElement = null;
 
   protected getTemplateResult(): TemplateResult {
     const icon = this.getIcon();
     return icon
       ? html`
+          <style>
+            ${iconStyle.default}
+          </style>
           ${unsafeHTML(icon.innerHTML)}
         `
       : null;

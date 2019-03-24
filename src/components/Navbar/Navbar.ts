@@ -1,6 +1,6 @@
 import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent/index';
-import { defaultNavbarStyle } from './Navbar.style';
+import navbarStyle from './Navbar.style';
 import { colorStyle } from '../../style/color.style';
 
 class Navbar extends YeeYeeComponent {
@@ -12,24 +12,17 @@ class Navbar extends YeeYeeComponent {
     return [Navbar.OPEN];
   }
 
-  constructor() {
-    super(defaultNavbarStyle);
-
-    window.document.body.style.margin = '0';
-  }
-
   protected update(name: string, newValue: string, oldValue: string): void {
     if (name === Navbar.OPEN) {
       this.render();
     }
   }
 
-  protected connectedCallback() {
-    this.render();
-  }
-
   protected getTemplateResult(): TemplateResult {
     return html`
+      <style>
+        ${navbarStyle.default}
+      </style>
       <nav>
         ${this.createMenuButton()} ${this.createName()}
         <yeeyee-drawer ?open=${this.hasAttribute(Navbar.OPEN)}>
@@ -62,7 +55,10 @@ class Navbar extends YeeYeeComponent {
     `;
   }
 
-  protected connected(): void {}
+  protected connected(): void {
+    window.document.body.style.margin = '0';
+    this.render();
+  }
 
   private createMenuButton(): TemplateResult {
     return html`

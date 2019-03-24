@@ -1,7 +1,7 @@
 import { css } from '../../style/utilsStyle';
 import { colorStyle } from '../../style/color.style';
 
-const defaultIconButtonStyle = css`
+const defaultStyle = css`
   button {
     cursor: pointer;
     text-decoration: none;
@@ -18,4 +18,4 @@ const defaultIconButtonStyle = css`
   }
 `;
 
-export { defaultIconButtonStyle };
+export default { default: defaultStyle };

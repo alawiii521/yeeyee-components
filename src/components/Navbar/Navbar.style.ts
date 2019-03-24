@@ -3,7 +3,7 @@ import { colorStyle } from '../../style/color.style';
 import { defaultFontStyle } from '../../style/font.style';
 import { paddingStyle } from '../../style/padding.style';
 
-const defaultNavbarStyle = css`
+const defaultStyle = css`
   nav {
     display: flex;
     flex-direction: row;
@@ -35,4 +35,4 @@ const defaultNavbarStyle = css`
   }
 `;
 
-export { defaultNavbarStyle };
+export default { default: defaultStyle };

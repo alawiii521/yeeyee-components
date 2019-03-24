@@ -3,18 +3,12 @@ import { paddingStyle } from '../../style/padding.style';
 import { colorStyle } from '../../style/color.style';
 import { css } from '../../style/utilsStyle';
 
-const values = {
-  normal: `
+const defaultStyle = css`
+  button {
     font-size: ${defaultFontStyle.fontSize.small};
     padding: 0 ${paddingStyle.xxLarge};
     height: 32px;
     line-height: 32px;
-  `,
-};
-
-const defaultButtonStyle = css`
-  button {
-    ${values.normal}
     font-family: ${defaultFontStyle.fontFamily}
     cursor: pointer;
     user-select: none;
@@ -35,4 +29,4 @@ const defaultButtonStyle = css`
   }
 `;
 
-export { defaultButtonStyle };
+export default { default: defaultStyle };

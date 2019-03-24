@@ -1,13 +1,9 @@
 import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent';
-import { defaultButtonStyle } from './Button.style';
+import buttonStyle from './Button.style';
 import { rippleRenderCss, renderRipple } from '../../animations';
 
 class Button extends YeeYeeComponent {
-  constructor() {
-    super(defaultButtonStyle + rippleRenderCss);
-  }
-
   protected connectedCallback() {
     this.render();
   }
@@ -18,6 +14,10 @@ class Button extends YeeYeeComponent {
 
   protected getTemplateResult(): TemplateResult {
     return html`
+      <style>
+        ${buttonStyle.default}
+        ${rippleRenderCss}
+      </style>
       <button @click=${(e: MouseEvent) => this.onClick(e)}>
         <slot>NO LABEL</slot>
       </button>

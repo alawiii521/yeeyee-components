@@ -1,9 +1,9 @@
 import { css } from '../../style/utilsStyle';
 
-const defaultIconStyle = css`
+const defaultStyle = css`
   :host {
     display: flex;
   }
 `;
 
-export { defaultIconStyle };
+export default { default: defaultStyle };

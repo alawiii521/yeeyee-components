@@ -1,30 +1,14 @@
 import { TemplateResult, render, html } from 'lit-html';
 
 abstract class YeeYeeComponent extends HTMLElement {
-  protected yeeStyle: string;
-
   constructor(yeeStyle?: string) {
     super();
-
-    this.yeeStyle = yeeStyle;
 
     this.attachShadow({ mode: 'open' });
   }
 
   private litRender(litTemplate: TemplateResult): void {
-    const template: TemplateResult = html`
-      ${this.getStyle(this.yeeStyle)} ${litTemplate}
-    `;
-
-    render(template, this.shadowRoot);
-  }
-
-  private getStyle(style: string): TemplateResult {
-    return html`
-      <style>
-        ${style}
-      </style>
-    `;
+    render(litTemplate, this.shadowRoot);
   }
 
   protected connectedCallback(): void {

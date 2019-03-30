@@ -1,4 +1,4 @@
-import GlobalStyle from '../style/GlobalStyle';
+import GlobalStyle from '../../style/GlobalStyle';
 
 class Home extends React.Component {
   render() {

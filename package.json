@@ -4,8 +4,7 @@
   "description": "UI components",
   "private": true,
   "scripts": {
-    "test": "npm test",
-    "start": "webpack-dev-server --config ./webpack/webpack.config.js",
+    "start": "webpack --watch --config ./webpack/webpack.config.js",
     "build": "NODE_ENV=production webpack --config ./webpack/webpack.config.js"
   },
   "repository": {

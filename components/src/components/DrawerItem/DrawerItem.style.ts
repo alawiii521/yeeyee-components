@@ -3,7 +3,8 @@ import { paddingStyle } from '../../style/padding.style';
 import { colorStyle } from '../../style/color.style';
 
 const defaultStyle = css`
-  a {
+  a,
+  div {
     display: block;
     padding: ${paddingStyle.large} ${paddingStyle.xxLarge};
     min-width: 200px;
@@ -13,9 +14,11 @@ const defaultStyle = css`
     border: solid 0 ${colorStyle.borderColor};
     border-bottom-width: 1px;
     text-align: left;
+    cursor: pointer;
   }
 
-  a:hover {
+  a:hover,
+  div:hover {
     background: ${colorStyle.primary};
     color: ${colorStyle.white};
   }

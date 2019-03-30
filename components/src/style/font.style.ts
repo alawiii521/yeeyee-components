@@ -1,4 +1,4 @@
-const defaultFontStyle = {
+const fontStyle = {
   fontFamily: 'Verdana, Helvetica, sans-serif;',
   fontSize: {
     small: '14px',
@@ -8,4 +8,4 @@ const defaultFontStyle = {
   },
 };
 
-export { defaultFontStyle };
+export { fontStyle };

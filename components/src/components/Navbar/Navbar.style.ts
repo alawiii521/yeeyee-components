@@ -1,6 +1,6 @@
 import { css } from '../../style/utilsStyle';
 import { colorStyle } from '../../style/color.style';
-import { defaultFontStyle } from '../../style/font.style';
+import { fontStyle } from '../../style/font.style';
 import { paddingStyle } from '../../style/padding.style';
 
 const defaultStyle = css`
@@ -19,7 +19,7 @@ const defaultStyle = css`
     color: ${colorStyle.white};
     font-weight: bold;
     text-decoration: none;
-    font-size: ${defaultFontStyle.fontSize.xLarge};
+    font-size: ${fontStyle.fontSize.xLarge};
   }
 
   yeeyee-icon-button {

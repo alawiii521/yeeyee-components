@@ -1,15 +1,15 @@
-import { defaultFontStyle } from '../../style/font.style';
+import { fontStyle } from '../../style/font.style';
 import { paddingStyle } from '../../style/padding.style';
 import { colorStyle } from '../../style/color.style';
 import { css } from '../../style/utilsStyle';
 
 const defaultStyle = css`
   button {
-    font-size: ${defaultFontStyle.fontSize.small};
+    font-size: ${fontStyle.fontSize.small};
     padding: 0 ${paddingStyle.xxLarge};
     height: 32px;
     line-height: 32px;
-    font-family: ${defaultFontStyle.fontFamily}
+    font-family: ${fontStyle.fontFamily}
     cursor: pointer;
     user-select: none;
     text-decoration: none;

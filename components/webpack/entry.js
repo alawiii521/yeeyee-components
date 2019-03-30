@@ -1,13 +1,7 @@
 const path = require('path');
 
 const BasePath = {
-  YEEYEE_COMPONENTS: path.resolve(
-    __dirname,
-    '..',
-    'components',
-    'src',
-    'components'
-  ),
+  YEEYEE_COMPONENTS: path.resolve(__dirname, '..', 'src', 'components'),
 };
 
 const components = {

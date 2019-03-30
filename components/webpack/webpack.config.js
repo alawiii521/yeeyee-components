@@ -22,7 +22,14 @@ const webComponentConfig = {
   output: {
     filename: '[name].js',
     publicPath: '/yeeyee-components/',
-    path: path.resolve(__dirname, '..', 'app', 'public', 'yeeyee-components'),
+    path: path.resolve(
+      __dirname,
+      '..',
+      '..',
+      'app',
+      'public',
+      'yeeyee-components'
+    ),
   },
 };
 

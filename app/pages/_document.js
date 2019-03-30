@@ -15,14 +15,15 @@ class MyDocument extends Document {
             type="image/x-icon"
             href="/static/favicon.ico"
           />
+          <title>YeeYee</title>
 
-          <script src="static/yeeyee-components/yeeyee-button.js" />
-          <script src="static/yeeyee-components/yeeyee-icon.js" />
-          <script src="static/yeeyee-components/yeeyee-button-icon.js" />
-          <script src="static/yeeyee-components/yeeyee-overlay.js" />
-          <script src="static/yeeyee-components/yeeyee-drawer.js" />
-          <script src="static/yeeyee-components/yeeyee-navbar.js" />
-          <script src="static/yeeyee-components/yeeyee-drawer-item.js" />
+          <script src="/static/yeeyee-components/yeeyee-button.js" />
+          <script src="/static/yeeyee-components/yeeyee-icon.js" />
+          <script src="/static/yeeyee-components/yeeyee-button-icon.js" />
+          <script src="/static/yeeyee-components/yeeyee-overlay.js" />
+          <script src="/static/yeeyee-components/yeeyee-drawer.js" />
+          <script src="/static/yeeyee-components/yeeyee-navbar.js" />
+          <script src="/static/yeeyee-components/yeeyee-drawer-item.js" />
         </Head>
         <body>
           <Main />

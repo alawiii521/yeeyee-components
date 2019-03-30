@@ -15,7 +15,6 @@ class MyDocument extends Document {
             type="image/x-icon"
             href="/static/favicon.ico"
           />
-          <title>YeeYee</title>
 
           <script src="/static/yeeyee-components/yeeyee-button.js" />
           <script src="/static/yeeyee-components/yeeyee-icon.js" />

@@ -8,7 +8,6 @@ const BasePath = {
     'src',
     'components'
   ),
-  APP: path.resolve(__dirname, '..', 'app', 'index.js'),
 };
 
 const components = {
@@ -21,8 +20,4 @@ const components = {
   'yeeyee-drawer-item': path.resolve(BasePath.YEEYEE_COMPONENTS, 'DrawerItem'),
 };
 
-const app = {
-  app: ['@babel/polyfill', path.resolve(BasePath.APP)],
-};
-
-module.exports = { app, components };
+module.exports = { components };

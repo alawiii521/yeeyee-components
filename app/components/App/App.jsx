@@ -5,7 +5,9 @@ class App extends Component {
     return (
       <Fragment>
         <yeeyee-navbar name="YeeYee" url="/">
-          <yeeyee-drawer-item>Home</yeeyee-drawer-item>
+          <yeeyee-drawer-item destination="https://hd.se">
+            Home
+          </yeeyee-drawer-item>
           <yeeyee-drawer-item>Sumo</yeeyee-drawer-item>
           <yeeyee-drawer-item>Menu</yeeyee-drawer-item>
           <yeeyee-drawer-item>Contact</yeeyee-drawer-item>

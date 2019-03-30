@@ -2,3 +2,5 @@ components/node_modules
 app/public/yeeyee-components
 npm-debug\.log
 /app/node_modules
+app/.next
+app/static/yeeyee-components

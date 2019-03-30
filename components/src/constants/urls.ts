@@ -1,3 +1,3 @@
-const ICON_PATH = '/icons';
+const ICON_PATH = 'static/icons';
 
 export { ICON_PATH };

@@ -27,7 +27,7 @@ const webComponentConfig = {
       '..',
       '..',
       'app',
-      'public',
+      'static',
       'yeeyee-components'
     ),
   },

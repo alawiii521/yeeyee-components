@@ -7,9 +7,20 @@ class Navbar extends YeeYeeComponent {
   static NAME: string = 'name';
   static URL: string = 'url';
   static OPEN: string = 'open';
+  static TYPE: string = 'type';
+
+  static Type = Object.freeze({
+    TEMPORARY: 'temporary',
+    PERSISTENT: 'persistent',
+  });
 
   static get observedAttributes() {
     return [Navbar.OPEN];
+  }
+
+  protected connected(): void {
+    window.document.body.style.margin = '0';
+    this.litRender();
   }
 
   protected update(name: string, newValue: string, oldValue: string): void {
@@ -22,6 +33,10 @@ class Navbar extends YeeYeeComponent {
     return html`
       <style>
         ${navbarStyle.default}
+        ${navbarStyle.open(
+          this.hasAttribute(Navbar.OPEN),
+          this.get(Navbar.TYPE)
+        )}
       </style>
       <nav>
         ${this.createMenuButton()} ${this.createName()}
@@ -31,10 +46,7 @@ class Navbar extends YeeYeeComponent {
         <div class="action-bar">
           <slot name="action-bar"></slot>
         </div>
-        <yeeyee-overlay
-          ?open=${this.hasAttribute(Navbar.OPEN)}
-          @close=${() => this.handleOverlayClick()}
-        ></yeeyee-overlay>
+        ${this.createOverlay()}
       </nav>
     `;
   }
@@ -43,21 +55,16 @@ class Navbar extends YeeYeeComponent {
     this.removeAttribute(Navbar.OPEN);
   }
 
-  private createName(): TemplateResult | string {
+  private createName(): TemplateResult {
     const name: string = this.get(Navbar.NAME);
     const url: string = this.get(Navbar.URL);
     if (!name) {
-      return '';
+      return html``;
     }
 
     return html`
       <a href=${url || ''}>${name}</a>
     `;
-  }
-
-  protected connected(): void {
-    window.document.body.style.margin = '0';
-    this.litRender();
   }
 
   private createMenuButton(): TemplateResult {
@@ -70,8 +77,28 @@ class Navbar extends YeeYeeComponent {
     `;
   }
 
+  private createOverlay(): TemplateResult {
+    const type: string = this.get(Navbar.TYPE);
+    if (type === Navbar.Type.PERSISTENT) {
+      return html``;
+    }
+
+    return html`
+      <yeeyee-overlay
+        ?open=${this.hasAttribute(Navbar.OPEN)}
+        @close=${() => this.handleOverlayClick()}
+      ></yeeyee-overlay>
+    `;
+  }
+
   private handleMenuClick(): void {
-    this.setAttribute(Navbar.OPEN, '');
+    const open: boolean = this.hasAttribute(Navbar.OPEN);
+
+    if (open) {
+      this.removeAttribute(Navbar.OPEN);
+    } else {
+      this.setAttribute(Navbar.OPEN, '');
+    }
   }
 }
 

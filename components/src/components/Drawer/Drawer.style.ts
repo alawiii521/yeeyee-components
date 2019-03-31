@@ -3,7 +3,7 @@ import Drawer from './Drawer';
 import { colorStyle } from '../../style/color.style';
 
 const animationDuration = 200;
-
+const timingFunction = 'ease-in-out';
 const defaultStyle = css`
   div {
     position: fixed;
@@ -14,7 +14,7 @@ const defaultStyle = css`
     box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2),
       0px 16px 24px 2px rgba(0, 0, 0, 0.14),
       0px 6px 30px 5px rgba(0, 0, 0, 0.12);
-    transition: transform ease-in-out ${animationDuration.toString()}ms;
+    transition: transform ${timingFunction} ${animationDuration.toString()}ms;
     transform: translate(0px, 0px);
     z-index: 100;
   }
@@ -61,4 +61,5 @@ export default {
   align,
   open,
   animationDuration,
+  timingFunction,
 };

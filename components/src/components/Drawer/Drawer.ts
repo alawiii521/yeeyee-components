@@ -41,7 +41,7 @@ class Drawer extends YeeYeeComponent {
     }
   }
 }
-
-window.customElements.define('yeeyee-drawer', Drawer);
+window.customElements.get('yeeyee-drawer') ||
+  window.customElements.define('yeeyee-drawer', Drawer);
 
 export default Drawer;

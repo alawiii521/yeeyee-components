@@ -5,6 +5,7 @@ import drawerStyle from './Drawer.style';
 class Drawer extends YeeYeeComponent {
   static OPEN: string = 'open';
   static ALIGN: string = 'align';
+  static OFFSET_TOP: string = 'offset-top';
 
   static Align = Object.freeze({
     LEFT: 'left',
@@ -28,6 +29,7 @@ class Drawer extends YeeYeeComponent {
           this.hasAttribute(Drawer.OPEN),
           this.get(Drawer.ALIGN)
         )}
+        ${drawerStyle.offsetTop(this.get(Drawer.OFFSET_TOP))}
       </style>
       <div>
         <slot> </slot>

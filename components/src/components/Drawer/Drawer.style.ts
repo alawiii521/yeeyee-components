@@ -7,7 +7,6 @@ const timingFunction = 'ease-in-out';
 const defaultStyle = css`
   div {
     position: fixed;
-    top: 0;
     height: 100%;
     overflow-y: auto;
     background: ${colorStyle.white};
@@ -56,10 +55,19 @@ function open(open = false, align: string): string {
   }
 }
 
+function offsetTop(offset: string): string {
+  return css`
+    div {
+      top: ${offset ? offset : '0'};
+    }
+  `;
+}
+
 export default {
   default: defaultStyle,
   align,
   open,
   animationDuration,
   timingFunction,
+  offsetTop,
 };

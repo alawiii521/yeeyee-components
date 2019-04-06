@@ -1,11 +1,13 @@
 import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent';
-import iconButtonStyle from './IconButton.style';
+import IconButtonStyle from './IconButton.style';
 import { rippleCss } from '../../animations/index';
 
 class IconButton extends YeeYeeComponent {
   static NAME: string = 'name';
   static COLOR: string = 'color';
+  static TYPE: string = 'type';
+  static FLOATING: string = 'floating';
 
   static get observedAttributes() {
     return [IconButton.COLOR, IconButton.NAME];
@@ -29,7 +31,9 @@ class IconButton extends YeeYeeComponent {
 
     return html`
       <style>
-        ${iconButtonStyle.default}
+        ${IconButtonStyle.default}
+        ${IconButtonStyle.type(this.get(IconButton.TYPE))}
+        ${IconButtonStyle.floating(this.hasAttribute(IconButton.FLOATING))}
         ${rippleCss}
       </style>
       <button class="ripple">

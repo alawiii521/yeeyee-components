@@ -1,5 +1,6 @@
 import classnames from 'classnames';
 import styles from './DrawerDocStyle';
+import IconButton from '../../../web-componets/IconButton/IconButton';
 
 function SettingsButton(props) {
   return (
@@ -11,8 +12,8 @@ function SettingsButton(props) {
     >
       {styles.settingsButton.styles}
       {styles.openSettingsButton.styles}
-      <yeeyee-icon-button
-        onClick={() => props.setShowSettings(!props.showSettings)}
+      <IconButton
+        handleClick={props.toogleSettings}
         floating
         type="secondary"
         color="#444"

@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 
 function Drawer(props) {
-  const drawerRef = useRef(drawerRef);
+  const drawerRef = useRef();
 
   useEffect(() => {
     if (Boolean(props.open)) {

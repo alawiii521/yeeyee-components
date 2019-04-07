@@ -6,6 +6,7 @@ import SettingsButton from './SettingsButton';
 
 function DrawerDoc() {
   const [showSettings, setShowSettings] = useState(false);
+  const toogleSettings = () => setShowSettings(!showSettings);
 
   return (
     <div>
@@ -30,7 +31,7 @@ function DrawerDoc() {
 
       <SettingsButton
         showSettings={showSettings}
-        setShowSettings={setShowSettings}
+        toogleSettings={toogleSettings}
       />
     </div>
   );

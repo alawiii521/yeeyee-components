@@ -1,45 +1,60 @@
 {
-  "name": "yeeyee-components",
-  "version": "1.0.0",
-  "description": "UI components",
-  "private": true,
-  "scripts": {
-    "start": "webpack --watch --config ./webpack/webpack.config.js",
-    "build": "NODE_ENV=production webpack --config ./webpack/webpack.config.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alawiii521/yeeyee-components.git"
-  },
-  "keywords": [
-    "web",
-    "components",
-    "html",
-    "ui",
-    "javascript",
-    "lit-html",
-    "typescript",
-    "webpack"
-  ],
-  "author": "Ali Majed",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alawiii521/yeeyee-components/issues"
-  },
-  "homepage": "https://github.com/alawiii521/yeeyee-components#readme",
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^1.6.0",
-    "@typescript-eslint/parser": "^1.6.0",
-    "eslint": "^5.16.0",
-    "eslint-loader": "^2.1.2",
-    "eslint-plugin-prettier": "^3.0.1",
-    "prettier": "^1.17.0",
-    "ts-loader": "^5.3.3",
-    "typescript": "^3.3.3333",
-    "webpack": "^4.29.5",
-    "webpack-cli": "^3.2.3"
-  },
-  "dependencies": {
-    "lit-html": "^1.0.0"
-  }
+	"name": "yeeyee-components",
+	"version": "1.0.0",
+	"description": "UI components",
+	"private": true,
+	"scripts": {
+		"start": "webpack --watch --config ./webpack/webpack.config.js",
+		"build": "NODE_ENV=production webpack --config ./webpack/webpack.config.js",
+		"lint": "./node_modules/.bin/eslint --ext .ts --ext .js .",
+		"lint:fix": "./node_modules/.bin/eslint --fix --ext .ts --ext .js .",
+		"precommit": "lint-staged"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/alawiii521/yeeyee-components.git"
+	},
+	"keywords": [
+		"web",
+		"components",
+		"html",
+		"ui",
+		"javascript",
+		"lit-html",
+		"typescript",
+		"webpack"
+	],
+	"author": "Ali Majed",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/alawiii521/yeeyee-components/issues"
+	},
+	"homepage": "https://github.com/alawiii521/yeeyee-components#readme",
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^1.6.0",
+		"@typescript-eslint/parser": "^1.6.0",
+		"eslint": "^5.16.0",
+		"eslint-loader": "^2.1.2",
+		"eslint-plugin-prettier": "^3.0.1",
+		"husky": "^1.3.1",
+		"lint-staged": "^8.1.5",
+		"prettier": "^1.17.0",
+		"ts-loader": "^5.3.3",
+		"typescript": "^3.3.3333",
+		"webpack": "^4.29.5",
+		"webpack-cli": "^3.2.3"
+	},
+	"dependencies": {
+		"lit-html": "^1.0.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run precommit"
+		}
+	},
+	"lint-staged": {
+		"*.{js,ts}": [
+      "./node_modules/.bin/eslint"
+		]
+	}
 }

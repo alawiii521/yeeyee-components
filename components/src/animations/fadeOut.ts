@@ -1,21 +1,21 @@
 import { css } from '../style/utilsStyle';
 
-const name: string = 'fade-out';
+const name = 'fade-out';
 
 const style = css`
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
+	@keyframes fadeOut {
+		from {
+			opacity: 1;
+		}
 
-    to {
-      opacity: 0;
-    }
-  }
+		to {
+			opacity: 0;
+		}
+	}
 
-  .${name} {
-    animation-name: fadeOut;
-  }
+	.${name} {
+		animation-name: fadeOut;
+	}
 `;
 
 export default { style, name };

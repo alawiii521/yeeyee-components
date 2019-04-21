@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "precommit:components": "cd components && npm run precommit",
+    "precommit:app": "cd app && npm run precommit",
     "precommit": "npm-run-all precommit:*"
   },
   "repository": {

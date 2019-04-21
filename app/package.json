@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "next"
+    "start": "next",
+    "lint": "./node_modules/.bin/eslint --ext .jsx --ext .js .",
+    "lint:fix": "./node_modules/.bin/eslint --fix --ext .jsx --ext .js .",
+    "precommit": "lint-staged"
   },
   "keywords": [],
   "author": "",
@@ -23,5 +26,10 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "prettier": "^1.17.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "./node_modules/.bin/eslint"
+    ]
   }
 }

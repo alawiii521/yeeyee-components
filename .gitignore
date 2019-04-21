@@ -4,3 +4,4 @@ npm-debug\.log
 /app/node_modules
 app/.next
 app/static/yeeyee-components
+/node_modules

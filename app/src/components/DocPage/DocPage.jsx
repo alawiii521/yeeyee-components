@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Drawer from '../../web-componets/Drawer';
 import FakeWindow from '../FakeWindow';
 import SettingsButton from './SettingsButton';
 
-function DocPage() {
+function DocPage(props) {
 	const [showSettings, setShowSettings] = useState(false);
 	const toogleSettings = () => setShowSettings(!showSettings);
 	return (
@@ -22,14 +23,7 @@ function DocPage() {
 				<yeeyee-drawer-item>Four</yeeyee-drawer-item>
 			</Drawer>
 
-			<FakeWindow width="700px" height="600px">
-				<yeeyee-navbar name="Drawer" type="persistent" open>
-					<yeeyee-drawer-item>Babba</yeeyee-drawer-item>
-					<yeeyee-drawer-item>Two</yeeyee-drawer-item>
-					<yeeyee-drawer-item>Three</yeeyee-drawer-item>
-					<yeeyee-drawer-item>Four</yeeyee-drawer-item>
-				</yeeyee-navbar>
-			</FakeWindow>
+			<FakeWindow width="700px" height="600px" contentUrl={props.contentUrl} />
 
 			<SettingsButton
 				showSettings={showSettings}
@@ -38,5 +32,9 @@ function DocPage() {
 		</div>
 	);
 }
+
+DocPage.propTypes = {
+	contentUrl: PropTypes.string.isRequired,
+};
 
 export default DocPage;

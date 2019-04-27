@@ -1,40 +1,19 @@
 import GlobalStyle from '../../../style/GlobalStyle';
 import Head from 'next/head';
-import { useState } from 'react';
-import Drawer from '../../../web-componets/Drawer';
-import SettingsButton from './SettingsButton';
+
+import DocPage from '../../../components/DocPage';
 
 function DrawerDoc() {
-  const [showSettings, setShowSettings] = useState(false);
-  const toogleSettings = () => setShowSettings(!showSettings);
+	return (
+		<div>
+			<GlobalStyle />
+			<Head>
+				<title>Drawer</title>
+			</Head>
 
-  return (
-    <div>
-      <GlobalStyle />
-      <Head>
-        <title>Drawer</title>
-      </Head>
-
-      <yeeyee-navbar name="Drawer" type="persistent" open>
-        <yeeyee-drawer-item>One</yeeyee-drawer-item>
-        <yeeyee-drawer-item>Two</yeeyee-drawer-item>
-        <yeeyee-drawer-item>Three</yeeyee-drawer-item>
-        <yeeyee-drawer-item>Four</yeeyee-drawer-item>
-      </yeeyee-navbar>
-
-      <Drawer open={showSettings} align="right" offsetTop="64px">
-        <yeeyee-drawer-item>One</yeeyee-drawer-item>
-        <yeeyee-drawer-item>Two</yeeyee-drawer-item>
-        <yeeyee-drawer-item>Three</yeeyee-drawer-item>
-        <yeeyee-drawer-item>Four</yeeyee-drawer-item>
-      </Drawer>
-
-      <SettingsButton
-        showSettings={showSettings}
-        toogleSettings={toogleSettings}
-      />
-    </div>
-  );
+			<DocPage />
+		</div>
+	);
 }
 
 export default DrawerDoc;

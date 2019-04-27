@@ -2,6 +2,7 @@ import GlobalStyle from '../../../style/GlobalStyle';
 import Head from 'next/head';
 
 import DocPage from '../../../components/DocPage';
+import DocUrls from '../../../constants/DocUrls';
 
 function DrawerDoc() {
 	return (
@@ -11,7 +12,7 @@ function DrawerDoc() {
 				<title>Drawer</title>
 			</Head>
 
-			<DocPage />
+			<DocPage contentUrl={DocUrls.DRAWER_PATH} />
 		</div>
 	);
 }

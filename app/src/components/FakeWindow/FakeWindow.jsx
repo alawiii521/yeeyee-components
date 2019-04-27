@@ -13,11 +13,7 @@ function FakeWindow(props) {
 				</div>
 			</div>
 			<div style={{ height: props.height }} className={FakeWindowStyle.window}>
-				{props.children ? (
-					<iframe className={FakeWindowStyle.iframe} />
-				) : (
-					props.children
-				)}
+				<iframe style={{ height: '100%', width: '100%', border: 'none' }} />
 			</div>
 		</div>
 	);
@@ -26,7 +22,6 @@ function FakeWindow(props) {
 FakeWindow.propTypes = {
 	width: PropTypes.string.isRequired,
 	height: PropTypes.string.isRequired,
-	children: PropTypes.oneOfType([PropTypes.node, PropTypes.array]),
 };
 
 export default FakeWindow;

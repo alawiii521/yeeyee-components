@@ -3,9 +3,10 @@ import { useState } from 'react';
 import Drawer from '../../web-componets/Drawer';
 import FakeWindow from '../FakeWindow';
 import SettingsButton from './SettingsButton';
+import useToggleState from '../../hooks/useToggleState';
 
 function DocPage(props) {
-	const [showSettings, setShowSettings] = useState(false);
+	const [showSettings, toggleSettings] = useToggleState(false);
 	const toogleSettings = () => setShowSettings(!showSettings);
 	return (
 		<div>
@@ -27,7 +28,7 @@ function DocPage(props) {
 
 			<SettingsButton
 				showSettings={showSettings}
-				toggleSettings={toogleSettings}
+				toggleSettings={toggleSettings}
 			/>
 		</div>
 	);

@@ -1,10 +1,15 @@
 import PropTypes from 'prop-types';
 import FakeActionButton from './FakeActionButton';
 import FakeWindowStyle from './FakeWindow.module.less';
+import { WindowOrientation } from '../../constants/WindowConstants';
 
 function FakeWindow(props) {
+	const landscape = props.orientation === WindowOrientation.LANDSCAPE;
+	const x = landscape ? props.x : props.y;
+	const y = landscape ? props.y : props.x;
+
 	return (
-		<div style={{ width: props.width }} className={FakeWindowStyle.wrapper}>
+		<div style={{ width: x }} className={FakeWindowStyle.wrapper}>
 			<div className={FakeWindowStyle.bar}>
 				<div className={FakeWindowStyle.actionContainer}>
 					<FakeActionButton color="#f65f56" />
@@ -12,7 +17,7 @@ function FakeWindow(props) {
 					<FakeActionButton color="#44c93f" />
 				</div>
 			</div>
-			<div style={{ height: props.height }} className={FakeWindowStyle.window}>
+			<div style={{ height: y }} className={FakeWindowStyle.window}>
 				<iframe
 					src={props.contentUrl}
 					style={{ height: '100%', width: '100%', border: 'none' }}
@@ -23,9 +28,13 @@ function FakeWindow(props) {
 }
 
 FakeWindow.propTypes = {
-	width: PropTypes.string.isRequired,
-	height: PropTypes.string.isRequired,
+	x: PropTypes.string.isRequired,
+	y: PropTypes.string.isRequired,
 	contentUrl: PropTypes.string.isRequired,
+	orientation: PropTypes.oneOf([
+		WindowOrientation.LANDSCAPE,
+		WindowOrientation.PORTRAIT,
+	]).isRequired,
 };
 
 export default FakeWindow;

@@ -1,13 +1,19 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
 import Drawer from '../../web-componets/Drawer';
 import FakeWindow from '../FakeWindow';
 import SettingsButton from './SettingsButton';
+import WindowSettings from './WindowSettings';
+import DocPageStyle from './DocPage.module.less';
 import useToggleState from '../../hooks/useToggleState';
+import { useToggleOrientation } from '../FakeWindow/FakeWindowHooks';
+import { WindowOrientation } from '../../constants/WindowConstants';
 
 function DocPage(props) {
 	const [showSettings, toggleSettings] = useToggleState(false);
-	const toogleSettings = () => setShowSettings(!showSettings);
+	const [orientationState, toggleOrientation] = useToggleOrientation(
+		WindowOrientation.LANDSCAPE
+	);
+
 	return (
 		<div>
 			<yeeyee-navbar name="Drawer" type="persistent" open>
@@ -24,7 +30,15 @@ function DocPage(props) {
 				<yeeyee-drawer-item>Four</yeeyee-drawer-item>
 			</Drawer>
 
-			<FakeWindow width="700px" height="600px" contentUrl={props.contentUrl} />
+			<div className={DocPageStyle.windowWrapper}>
+				<WindowSettings toggleOrientation={toggleOrientation} />
+				<FakeWindow
+					orientation={orientationState}
+					x="400px"
+					y="600px"
+					contentUrl={props.contentUrl}
+				/>
+			</div>
 
 			<SettingsButton
 				showSettings={showSettings}

@@ -2,12 +2,22 @@ import YeeYeeComponent from '../YeeYeeComponent';
 import { TemplateResult, html } from 'lit-html';
 
 class NumberInput extends YeeYeeComponent {
+	public static VALUE = 'value';
+
+	public static get observedAttributes(): string[] {
+		return [NumberInput.VALUE];
+	}
+
 	protected render(): TemplateResult {
 		return html`
-			<h1>Number input!!!</h1>
+			<input type="number" value=${this.getAttribute(NumberInput.VALUE)} />
 		`;
 	}
-	protected update(): void {}
+	protected update(name: string): void {
+		if (name === NumberInput.VALUE) {
+			this.litRender();
+		}
+	}
 
 	protected connected(): void {
 		this.litRender();

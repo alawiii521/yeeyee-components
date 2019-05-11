@@ -5,6 +5,7 @@ import NumberInputStyle from './NumberInput.style';
 class NumberInput extends YeeYeeComponent {
 	public static VALUE = 'value';
 	public static LABEL = 'label';
+
 	private input: HTMLInputElement = null;
 	private label: HTMLLabelElement = null;
 
@@ -18,17 +19,17 @@ class NumberInput extends YeeYeeComponent {
 				${NumberInputStyle.default}
 			</style>
 
-			<label
-				>${this.getAttribute(NumberInput.LABEL)}
-
+			<div>
+				<label for="for-id">${this.getAttribute(NumberInput.LABEL)} </label>
 				<input
+					id="for-id"
 					type="number"
 					@change=${(e: Event): void => this.handleChange(e)}
 					@input=${(e: Event): void => this.handleInput(e)}
 					@blur=${(): void => this.handleBlur()}
 					@focus=${(): void => this.handleFocus()}
 				/>
-			</label>
+			</div>
 		`;
 	}
 
@@ -42,6 +43,10 @@ class NumberInput extends YeeYeeComponent {
 		this.litRender();
 
 		this.getInput().value = this.getAttribute(NumberInput.VALUE);
+
+		if (!this.isValueEmpty()) {
+			this.setActiveState(true);
+		}
 	}
 
 	private handleChange(e: Event): void {
@@ -55,11 +60,26 @@ class NumberInput extends YeeYeeComponent {
 	}
 
 	private handleFocus(): void {
-		this.getLabel().classList.add('focus');
+		this.setActiveState(true);
 	}
 
 	private handleBlur(): void {
-		this.getLabel().classList.remove('focus');
+		if (this.isValueEmpty()) {
+			this.setActiveState(false);
+		}
+	}
+
+	private setActiveState(state: boolean): void {
+		if (state) {
+			this.getLabel().classList.add('active');
+		} else {
+			this.getLabel().classList.remove('active');
+		}
+	}
+
+	private isValueEmpty(): boolean {
+		const value = this.getAttribute(NumberInput.VALUE);
+		return value === 'NaN' || (!value && value !== '0');
 	}
 
 	public getInput(): HTMLInputElement {

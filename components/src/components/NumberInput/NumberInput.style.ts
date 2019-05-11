@@ -12,16 +12,26 @@ const defaultStyle = css`
 		box-shadow: inset 0px 2px 0px 2px ${colorStyle.white}, inset 0px 0px 0px 1px ${colorStyle.darkGrey};
 	}
 
+	label {
+		position: absolute;
+		top: 8px;
+		left: 4px;
+		color: ${colorStyle.textColor};
+		transition: transform 200ms ease-out;
+		transform: translateY(0) scale(1);
+	}
+
+	div {
+		position: relative;
+	}
+
 	input:focus {
 		box-shadow: inset 0px 3px 0px 3px ${colorStyle.white}, inset 0px 0px 0px 2px ${colorStyle.primary};
 	}
 
-	label {
-		color: ${colorStyle.textColor};
-	}
-
-	.focus {
+	.active {
 		color: ${colorStyle.primary};
+		transform: translateY(-22px) scale(0.85);
 	}
 `;
 

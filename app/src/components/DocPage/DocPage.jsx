@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import Drawer from '../../web-componets/Drawer';
+import Drawer from '../../web-components/Drawer';
 import FakeWindow from '../FakeWindow';
 import SettingsButton from './SettingsButton';
 import WindowSettings from './WindowSettings';

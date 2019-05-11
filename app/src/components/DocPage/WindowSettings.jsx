@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import WindowSettingsStyle from './WindowSettings.module.less';
-import IconButton from '../../web-componets/IconButton/IconButton';
-import NumberInput from '../../web-componets/NumberInput';
+import IconButton from '../../web-components/IconButton/IconButton';
+import NumberInput from '../../web-components/NumberInput';
 
 function WindowSettings(props) {
 	return (

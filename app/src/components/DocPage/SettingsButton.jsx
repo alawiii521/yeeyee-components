@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import SettingsButtonStyle from './SettingsButton.module.less';
-import IconButton from '../../web-componets/IconButton/IconButton';
+import IconButton from '../../web-components/IconButton/IconButton';
 
 function SettingsButton(props) {
 	return (

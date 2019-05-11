@@ -56,7 +56,7 @@ const rippleCss = css`
 	}
 `;
 
-function renderRipple(x: number, y: number, domElement: any): void {
+function renderRipple(x: number, y: number, domElement: Element): void {
 	const diameter = Math.max(domElement.clientWidth, domElement.clientHeight);
 	const rect = domElement.getBoundingClientRect();
 

@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
 import WindowSettingsStyle from './WindowSettings.module.less';
 import IconButton from '../../web-componets/IconButton/IconButton';
+import NumberInput from '../../web-componets/NumberInput';
 
 function WindowSettings(props) {
 	return (
 		<div className={WindowSettingsStyle.wrapper}>
 			<label>x</label>
-			<input type="number" onChange={props.handleX} value={props.x} />
+			<NumberInput value={props.x} handleInput={props.handleX} />
 			<label>y</label>
-			<input type="number" onChange={props.handleY} value={props.y} />
+			<NumberInput value={props.y} handleInput={props.handleY} />
 			<IconButton
 				handleClick={props.toggleOrientation}
 				floating

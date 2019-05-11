@@ -66,7 +66,7 @@ const useHandleSize = initValue => {
 	const [value, setValue] = useState(initValue);
 
 	const handleInput = e => {
-		const parsedValue = parseInt(e.target.value);
+		const parsedValue = parseInt(e.target.getInput().value);
 		if (parsedValue && parsedValue > MIN_SIZE) {
 			setValue(parsedValue);
 		} else {

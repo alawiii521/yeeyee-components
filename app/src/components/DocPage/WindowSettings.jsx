@@ -6,10 +6,9 @@ import NumberInput from '../../web-components/NumberInput';
 function WindowSettings(props) {
 	return (
 		<div className={WindowSettingsStyle.wrapper}>
-			<label>x</label>
-			<NumberInput value={props.x} handleInput={props.handleX} />
-			<label>y</label>
-			<NumberInput value={props.y} handleInput={props.handleY} />
+			<NumberInput value={props.x} handleInput={props.handleX} label="x" />
+
+			<NumberInput value={props.y} handleInput={props.handleY} label="y" />
 			<IconButton
 				handleClick={props.toggleOrientation}
 				floating

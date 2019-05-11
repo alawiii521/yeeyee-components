@@ -8,12 +8,19 @@ function NumberInput(props) {
 		inputRef.current.addEventListener('yeeyee-input', props.handleInput);
 	}, [props.handleInput]);
 
-	return <yeeyee-number-input ref={inputRef} value={props.value} />;
+	return (
+		<yeeyee-number-input
+			ref={inputRef}
+			value={props.value}
+			label={props.label}
+		/>
+	);
 }
 
 NumberInput.propTypes = {
 	value: PropTypes.number,
 	handleInput: PropTypes.func,
+	label: PropTypes.string,
 };
 
 export default NumberInput;

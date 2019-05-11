@@ -1,25 +1,42 @@
 import YeeYeeComponent from '../YeeYeeComponent';
 import { TemplateResult, html } from 'lit-html';
+import NumberInputStyle from './NumberInput.style';
 
 class NumberInput extends YeeYeeComponent {
 	public static VALUE = 'value';
-	private thisInput: HTMLInputElement = null;
+	public static LABEL = 'label';
+	private input: HTMLInputElement = null;
+	private label: HTMLLabelElement = null;
 
 	public static get observedAttributes(): string[] {
-		return [NumberInput.VALUE];
+		return [NumberInput.VALUE, NumberInput.LABEL];
 	}
 
 	protected render(): TemplateResult {
 		return html`
-			<input
-				type="number"
-				@change=${(e: Event): void => this.handleChange(e)}
-				@input=${(e: Event): void => this.handleInput(e)}
-			/>
+			<style>
+				${NumberInputStyle.default}
+			</style>
+
+			<label
+				>${this.getAttribute(NumberInput.LABEL)}
+
+				<input
+					type="number"
+					@change=${(e: Event): void => this.handleChange(e)}
+					@input=${(e: Event): void => this.handleInput(e)}
+					@blur=${(): void => this.handleBlur()}
+					@focus=${(): void => this.handleFocus()}
+				/>
+			</label>
 		`;
 	}
 
-	protected update(): void {}
+	protected update(name: string): void {
+		if (name === NumberInput.LABEL) {
+			this.litRender();
+		}
+	}
 
 	protected connected(): void {
 		this.litRender();
@@ -37,12 +54,28 @@ class NumberInput extends YeeYeeComponent {
 		this.getInput().value = this.getAttribute(NumberInput.VALUE);
 	}
 
+	private handleFocus(): void {
+		this.getLabel().classList.add('focus');
+	}
+
+	private handleBlur(): void {
+		this.getLabel().classList.remove('focus');
+	}
+
 	public getInput(): HTMLInputElement {
-		if (!this.thisInput) {
-			this.thisInput = this.shadowRoot.querySelector('input');
+		if (!this.input) {
+			this.input = this.shadowRoot.querySelector('input');
 		}
 
-		return this.thisInput;
+		return this.input;
+	}
+
+	public getLabel(): HTMLLabelElement {
+		if (!this.label) {
+			this.label = this.shadowRoot.querySelector('label');
+		}
+
+		return this.label;
 	}
 }
 

@@ -31,7 +31,7 @@ function DocPage(props) {
 				<title>{props.title}</title>
 			</Head>
 
-			<yeeyee-navbar name="Drawer" type="persistent" open>
+			<yeeyee-navbar name={props.name} type="persistent" open>
 				<yeeyee-drawer-item>One</yeeyee-drawer-item>
 				<yeeyee-drawer-item>Two</yeeyee-drawer-item>
 				<yeeyee-drawer-item>Three</yeeyee-drawer-item>
@@ -87,6 +87,7 @@ const useHandleSize = initValue => {
 DocPage.propTypes = {
 	contentUrl: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
+	name: PropTypes.string.isRequired,
 };
 
 export default DocPage;

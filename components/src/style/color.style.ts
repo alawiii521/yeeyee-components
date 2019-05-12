@@ -1,4 +1,4 @@
-const colorStyle = {
+const ColorStyle = {
 	white: '#fff',
 	primaryLight: '#42a5f5',
 	primary: '#2196f3',
@@ -9,4 +9,4 @@ const colorStyle = {
 	borderColor: '#ccc',
 };
 
-export { colorStyle };
+export { ColorStyle };

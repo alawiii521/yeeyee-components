@@ -1,6 +1,6 @@
 import { css } from '../../style/utilsStyle';
 import { paddingStyle } from '../../style/padding.style';
-import { colorStyle } from '../../style/color.style';
+import { ColorStyle } from '../../style/color.style';
 
 const width = 200;
 
@@ -12,9 +12,9 @@ const defaultStyle = css`
 		min-width: ${width.toString()}px;
 		width: ${width.toString()}px;
 		text-decoration: none;
-		color: ${colorStyle.textColor};
+		color: ${ColorStyle.textColor};
 		font-weight: bold;
-		border: solid 0 ${colorStyle.borderColor};
+		border: solid 0 ${ColorStyle.borderColor};
 		border-bottom-width: 1px;
 		text-align: left;
 		cursor: pointer;
@@ -23,8 +23,8 @@ const defaultStyle = css`
 
 	a:hover,
 	div:hover {
-		background: ${colorStyle.primary};
-		color: ${colorStyle.white};
+		background: ${ColorStyle.primary};
+		color: ${ColorStyle.white};
 	}
 `;
 

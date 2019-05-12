@@ -1,6 +1,6 @@
 import { css } from '../../style/utilsStyle';
 import Drawer from './Drawer';
-import { colorStyle } from '../../style/color.style';
+import { ColorStyle } from '../../style/color.style';
 
 const animationDuration = 200;
 const timingFunction = 'ease-in-out';
@@ -9,7 +9,7 @@ const defaultStyle = css`
 		position: fixed;
 		height: 100%;
 		overflow-y: auto;
-		background: ${colorStyle.white};
+		background: ${ColorStyle.white};
 		box-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14),
 			0px 6px 30px 5px rgba(0, 0, 0, 0.12);
 		transition: transform ${timingFunction} ${animationDuration.toString()}ms;

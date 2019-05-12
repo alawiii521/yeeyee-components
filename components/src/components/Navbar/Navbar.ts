@@ -1,7 +1,7 @@
 import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent/index';
 import navbarStyle from './Navbar.style';
-import { colorStyle } from '../../style/color.style';
+import { ColorStyle } from '../../style/color.style';
 
 class Navbar extends YeeYeeComponent {
 	public static NAME: string = 'name';
@@ -68,7 +68,7 @@ class Navbar extends YeeYeeComponent {
 		return html`
 			<yeeyee-icon-button
 				name="menu"
-				color=${colorStyle.white}
+				color=${ColorStyle.white}
 				@click=${(): void => this.handleMenuClick()}
 			></yeeyee-icon-button>
 		`;

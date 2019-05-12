@@ -1,5 +1,5 @@
 import { css } from '../../style/utilsStyle';
-import { colorStyle } from '../../style/color.style';
+import { ColorStyle } from '../../style/color.style';
 
 const defaultStyle = css`
 	input {
@@ -8,15 +8,15 @@ const defaultStyle = css`
 		font-family: inherit;
 		outline: none;
 		border: none;
-		color: ${colorStyle.textColor};
-		box-shadow: inset 0px 2px 0px 2px ${colorStyle.white}, inset 0px 0px 0px 1px ${colorStyle.darkGrey};
+		color: ${ColorStyle.textColor};
+		box-shadow: inset 0px 2px 0px 2px ${ColorStyle.white}, inset 0px 0px 0px 1px ${ColorStyle.darkGrey};
 	}
 
 	label {
 		position: absolute;
 		top: 8px;
 		left: 4px;
-		color: ${colorStyle.textColor};
+		color: ${ColorStyle.textColor};
 		transition: transform 200ms ease-out;
 		transform: translateY(0) scale(1);
 	}
@@ -26,11 +26,11 @@ const defaultStyle = css`
 	}
 
 	input:focus {
-		box-shadow: inset 0px 3px 0px 3px ${colorStyle.white}, inset 0px 0px 0px 2px ${colorStyle.primary};
+		box-shadow: inset 0px 3px 0px 3px ${ColorStyle.white}, inset 0px 0px 0px 2px ${ColorStyle.primary};
 	}
 
 	.active {
-		color: ${colorStyle.primary};
+		color: ${ColorStyle.primary};
 		transform: translateY(-22px) scale(0.85);
 	}
 `;

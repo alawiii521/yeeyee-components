@@ -1,5 +1,5 @@
 import { css } from '../../style/utilsStyle';
-import { colorStyle } from '../../style/color.style';
+import { ColorStyle } from '../../style/color.style';
 import { StyleTypes } from '../../constants/styleConstants';
 
 const defaultStyle = css`
@@ -18,21 +18,21 @@ const type = (type: string): string => {
 	if (type === StyleTypes.PRIMARY || !type) {
 		return css`
 			button {
-				background: ${colorStyle.primary};
+				background: ${ColorStyle.primary};
 			}
 
 			button:hover {
-				background-color: ${colorStyle.primaryDark};
+				background-color: ${ColorStyle.primaryDark};
 			}
 		`;
 	} else if (type === StyleTypes.SECONDARY) {
 		return css`
 			button {
-				background: ${colorStyle.grey};
+				background: ${ColorStyle.grey};
 			}
 
 			button:hover {
-				background-color: ${colorStyle.darkGrey};
+				background-color: ${ColorStyle.darkGrey};
 			}
 		`;
 	}

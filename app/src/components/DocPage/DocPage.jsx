@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import Drawer from '../../web-components/Drawer';
@@ -8,6 +9,7 @@ import DocPageStyle from './DocPage.module.less';
 import useToggleState from '../../hooks/useToggleState';
 import { useToggleOrientation } from '../FakeWindow/FakeWindowHooks';
 import { WindowOrientation } from '../../constants/WindowConstants';
+import GlobalStyle from '../../style/GlobalStyle';
 
 const DEFAULT_X = 800;
 const DEFAULT_Y = 600;
@@ -24,6 +26,11 @@ function DocPage(props) {
 
 	return (
 		<div>
+			<GlobalStyle />
+			<Head>
+				<title>{props.title}</title>
+			</Head>
+
 			<yeeyee-navbar name="Drawer" type="persistent" open>
 				<yeeyee-drawer-item>One</yeeyee-drawer-item>
 				<yeeyee-drawer-item>Two</yeeyee-drawer-item>
@@ -79,6 +86,7 @@ const useHandleSize = initValue => {
 
 DocPage.propTypes = {
 	contentUrl: PropTypes.string.isRequired,
+	title: PropTypes.string.isRequired,
 };
 
 export default DocPage;

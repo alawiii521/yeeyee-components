@@ -3,6 +3,7 @@ const GlobalStyle = () => (
 		body {
 			font-family: Verdana, Geneva, Tahoma, sans-serif;
 			overflow-y: scroll;
+			margin: 0;
 		}
 	`}</style>
 );

@@ -13,6 +13,7 @@ const components = {
 	'yeeyee-overlay': path.resolve(BasePath.YEEYEE_COMPONENTS, 'Overlay'),
 	'yeeyee-drawer-item': path.resolve(BasePath.YEEYEE_COMPONENTS, 'DrawerItem'),
 	'yeeyee-number-input': path.resolve(BasePath.YEEYEE_COMPONENTS, 'NumberInput'),
+	'yeeyee-number-switch': path.resolve(BasePath.YEEYEE_COMPONENTS, 'Switch'),
 };
 
 module.exports = { components };

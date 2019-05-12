@@ -1,10 +1,11 @@
 import GlobalStyle from '../../../style/GlobalStyle';
+import SwitchDocContentStyle from './SwitchDocContent.module.less';
 
 function SwitchDocContent() {
 	return (
-		<div>
+		<div className={SwitchDocContentStyle.wrapper}>
 			<GlobalStyle />
-			<h1>Switch</h1>
+			<yeeyee-switch />
 		</div>
 	);
 }

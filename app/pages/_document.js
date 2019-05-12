@@ -24,6 +24,7 @@ class MyDocument extends Document {
 					<script src="/static/yeeyee-components/yeeyee-navbar.js" />
 					<script src="/static/yeeyee-components/yeeyee-drawer-item.js" />
 					<script src="/static/yeeyee-components/yeeyee-number-input.js" />
+					<script src="/static/yeeyee-components/yeeyee-number-switch.js" />
 				</Head>
 				<body>
 					<Main />

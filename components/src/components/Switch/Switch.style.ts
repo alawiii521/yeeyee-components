@@ -79,7 +79,7 @@ const defaultStyle = css`
 
 	@keyframes ripple {
 		0% {
-			opacity: 0.5;
+			opacity: 0.4;
 			transform: scale(0);
 		}
 

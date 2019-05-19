@@ -2,7 +2,7 @@ import { css } from '../../style/utilsStyle';
 import { paddingStyle } from '../../style/padding.style';
 import { ColorStyle } from '../../style/color.style';
 
-const width = 200;
+const width = 250;
 
 const defaultStyle = css`
 	a,

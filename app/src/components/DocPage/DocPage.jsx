@@ -39,10 +39,7 @@ function DocPage(props) {
 			</yeeyee-navbar>
 
 			<Drawer open={showSettings} align="right" offsetTop="64px">
-				<yeeyee-drawer-item>One</yeeyee-drawer-item>
-				<yeeyee-drawer-item>Two</yeeyee-drawer-item>
-				<yeeyee-drawer-item>Three</yeeyee-drawer-item>
-				<yeeyee-drawer-item>Four</yeeyee-drawer-item>
+				<div className={DocPageStyle.settingsPane} />
 			</Drawer>
 
 			<div className={DocPageStyle.windowWrapper}>

@@ -4,6 +4,10 @@ import { ColorStyle } from '../../style/color.style';
 const SWITC_RIPPLE_DURATION = 750;
 
 const defaultStyle = css`
+	:host {
+		display: inline-block;
+	}
+
 	input {
 		opacity: 0;
 		width: 0;

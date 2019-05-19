@@ -17,7 +17,7 @@ const DEFAULT_Y = 600;
 const MIN_SIZE = 200;
 
 function DocPage(props) {
-	const [showSettings, toggleSettings] = useToggleState(false);
+	const [showSettings, toggleSettings] = useToggleState(true);
 	const [orientationState, toggleOrientation] = useToggleOrientation(
 		WindowOrientation.LANDSCAPE
 	);

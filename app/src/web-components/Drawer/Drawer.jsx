@@ -15,7 +15,7 @@ function Drawer(props) {
 	return (
 		<yeeyee-drawer
 			ref={drawerRef}
-			align={props.align}
+			alignment={props.alignment}
 			offset-top={props.offsetTop}
 		>
 			{props.children}
@@ -25,7 +25,7 @@ function Drawer(props) {
 
 Drawer.propTypes = {
 	open: PropTypes.bool.isRequired,
-	align: PropTypes.string,
+	alignment: PropTypes.string,
 	offsetTop: PropTypes.string,
 	children: PropTypes.oneOfType([PropTypes.node, PropTypes.array]).isRequired,
 };

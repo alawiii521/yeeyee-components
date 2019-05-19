@@ -18,14 +18,14 @@ const defaultStyle = css`
 	}
 `;
 
-function align(align: string): string {
-	if (align === Drawer.Align.LEFT || align === null) {
+function alignment(alignment: string): string {
+	if (alignment === Drawer.Alignment.LEFT || alignment === null) {
 		return css`
 			div {
 				left: 0;
 			}
 		`;
-	} else if (align === Drawer.Align.RIGHT) {
+	} else if (alignment === Drawer.Alignment.RIGHT) {
 		return css`
 			div {
 				right: 0;
@@ -34,18 +34,18 @@ function align(align: string): string {
 	}
 }
 
-function open(open = false, align: string): string {
+function open(open = false, alignment: string): string {
 	if (open) {
 		return '';
 	}
 
-	if (align === Drawer.Align.LEFT || align === null) {
+	if (alignment === Drawer.Alignment.LEFT || alignment === null) {
 		return css`
 			div {
 				transform: translate(-100%, 0px);
 			}
 		`;
-	} else if (align === Drawer.Align.RIGHT) {
+	} else if (alignment === Drawer.Alignment.RIGHT) {
 		return css`
 			div {
 				transform: translate(100%, 0px);
@@ -64,7 +64,7 @@ function offsetTop(offset: string): string {
 
 export default {
 	default: defaultStyle,
-	align,
+	alignment,
 	open,
 	animationDuration,
 	timingFunction,

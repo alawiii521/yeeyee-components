@@ -4,10 +4,10 @@ import drawerStyle from './Drawer.style';
 
 class Drawer extends YeeYeeComponent {
 	public static OPEN: string = 'open';
-	public static ALIGN: string = 'align';
+	public static ALIGNMENT: string = 'alignment';
 	public static OFFSET_TOP: string = 'offset-top';
 
-	public static Align = Object.freeze({
+	public static Alignment = Object.freeze({
 		LEFT: 'left',
 		RIGHT: 'right',
 	});
@@ -24,8 +24,8 @@ class Drawer extends YeeYeeComponent {
 		return html`
 			<style>
 				${drawerStyle.default}
-				${drawerStyle.align(this.get(Drawer.ALIGN))}
-				${drawerStyle.open(this.hasAttribute(Drawer.OPEN), this.get(Drawer.ALIGN))}
+				${drawerStyle.alignment(this.get(Drawer.ALIGNMENT))}
+				${drawerStyle.open(this.hasAttribute(Drawer.OPEN), this.get(Drawer.ALIGNMENT))}
 				${drawerStyle.offsetTop(this.get(Drawer.OFFSET_TOP))}
 			</style>
 			<div>

@@ -10,6 +10,7 @@ import useToggleState from '../../hooks/useToggleState';
 import { useToggleOrientation } from '../FakeWindow/FakeWindowHooks';
 import { WindowOrientation } from '../../constants/WindowConstants';
 import GlobalStyle from '../../style/GlobalStyle';
+import DocSwitch from '../DocSwitch/DocSwitch';
 
 const DEFAULT_X = 800;
 const DEFAULT_Y = 600;
@@ -38,8 +39,10 @@ function DocPage(props) {
 				<yeeyee-drawer-item>Four</yeeyee-drawer-item>
 			</yeeyee-navbar>
 
-			<Drawer open={showSettings} align="right" offsetTop="64px">
-				<div className={DocPageStyle.settingsPane} />
+			<Drawer open={showSettings} alignment="right" offsetTop="64px">
+				<div className={DocPageStyle.settingsPane}>
+					<DocSwitch />
+				</div>
 			</Drawer>
 
 			<div className={DocPageStyle.windowWrapper}>

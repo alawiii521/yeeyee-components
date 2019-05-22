@@ -19,7 +19,7 @@
 	"parser": "babel-eslint",
 	"plugins": ["react", "prettier", "react-hooks"],
 	"rules": {
-		"indent": ["error", "tab"],
+		"indent": 0,
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],
 		"semi": ["error", "always"],

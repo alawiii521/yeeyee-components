@@ -10,7 +10,6 @@ import useToggleState from '../../hooks/useToggleState';
 import { useToggleOrientation } from '../FakeWindow/FakeWindowHooks';
 import { WindowOrientation } from '../../constants/WindowConstants';
 import GlobalStyle from '../../style/GlobalStyle';
-import DocSwitch from '../DocSwitch/DocSwitch';
 
 const DEFAULT_X = 800;
 const DEFAULT_Y = 600;
@@ -40,9 +39,7 @@ function DocPage(props) {
 			</yeeyee-navbar>
 
 			<Drawer open={showSettings} alignment="right" offsetTop="64px">
-				<div className={DocPageStyle.settingsPane}>
-					<DocSwitch />
-				</div>
+				<div className={DocPageStyle.settingsPane}>{props.children}</div>
 			</Drawer>
 
 			<div className={DocPageStyle.windowWrapper}>
@@ -88,6 +85,7 @@ DocPage.propTypes = {
 	contentUrl: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
+	children: PropTypes.node.isRequired,
 };
 
 export default DocPage;

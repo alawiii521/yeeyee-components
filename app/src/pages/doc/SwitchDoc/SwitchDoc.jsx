@@ -1,11 +1,11 @@
 import DocPage from '../../../components/DocPage';
 import DocUrls from '../../../constants/DocUrls';
-import DocSwitch from '../../../components/DocSwitch/DocSwitch';
+import SwitchSetting from '../../../components/SwitchSetting';
 
 const SwitchDoc = () => {
 	return (
 		<DocPage title="Switch" name="Switch" contentUrl={DocUrls.SWITCH_PATH}>
-			<DocSwitch label="checked" />
+			<SwitchSetting label="checked" />
 		</DocPage>
 	);
 };

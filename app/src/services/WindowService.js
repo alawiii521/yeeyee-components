@@ -4,7 +4,7 @@ function getChildWindow() {
 	if (childWindow) {
 		return childWindow;
 	} else {
-		childWindow = document.querySelector('iframe');
+		childWindow = window.document.querySelector('iframe');
 		return childWindow;
 	}
 }
@@ -21,10 +21,10 @@ function postMessage(data, toParent = false) {
 	}
 }
 
-const IframeService = {
+const WindowService = {
 	getParentWindow,
 	getChildWindow,
 	postMessage,
 };
 
-export default IframeService;
+export default WindowService;

@@ -6,7 +6,7 @@ import FakeWindow from '../FakeWindow';
 import SettingsButton from './SettingsButton';
 import WindowSettings from './WindowSettings';
 import DocPageStyle from './DocPage.module.less';
-import useToggleState from '../../hooks/useToggleState';
+import UseToggleReducer from '../../hooks/core/UseToggleReducer';
 import { useToggleOrientation } from '../FakeWindow/FakeWindowHooks';
 import { WindowOrientation } from '../../constants/WindowConstants';
 import GlobalStyle from '../../style/GlobalStyle';
@@ -17,7 +17,7 @@ const DEFAULT_Y = 600;
 const MIN_SIZE = 200;
 
 function DocPage(props) {
-	const [showSettings, toggleSettings] = useToggleState(true);
+	const [showSettings, toggleSettings] = UseToggleReducer(true);
 	const [orientationState, toggleOrientation] = useToggleOrientation(
 		WindowOrientation.LANDSCAPE
 	);

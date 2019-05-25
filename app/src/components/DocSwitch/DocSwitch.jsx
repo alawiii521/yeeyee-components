@@ -1,11 +1,18 @@
 import PropTypes from 'prop-types';
 import Switch from '../../web-components/Switch';
 import DocSwitchStyle from './DocSwitch.module.less';
-import useSwitchDocReducer from '../../hooks/UseSwitchDocReducer';
+import UseToggleReducer from '../../hooks/core/UseToggleReducer';
 import { useEffect } from 'react';
+import WindowService from '../../services/WindowService';
+
+const COMPONENT_NAME = 'switch';
 
 function DocSwitch(props) {
-	const [checked, toggleState] = useSwitchDocReducer(true);
+	const [checked, toggleState] = UseToggleReducer(true);
+
+	// window is not available when doing server side rendering
+	typeof window !== 'undefined' &&
+		WindowService.postMessage({ name: COMPONENT_NAME, checked });
 
 	useEffect(() => {
 		const handleEvent = () => {

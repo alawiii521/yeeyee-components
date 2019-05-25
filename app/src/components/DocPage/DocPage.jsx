@@ -10,6 +10,7 @@ import UseToggleReducer from '../../hooks/core/UseToggleReducer';
 import { useToggleOrientation } from '../FakeWindow/FakeWindowHooks';
 import { WindowOrientation } from '../../constants/WindowConstants';
 import GlobalStyle from '../../style/GlobalStyle';
+import Navigation from './Navigation/Navigation';
 
 const DEFAULT_X = 800;
 const DEFAULT_Y = 600;
@@ -31,12 +32,7 @@ function DocPage(props) {
 				<title>{props.title}</title>
 			</Head>
 
-			<yeeyee-navbar name={props.name} type="persistent" open>
-				<yeeyee-drawer-item>One</yeeyee-drawer-item>
-				<yeeyee-drawer-item>Two</yeeyee-drawer-item>
-				<yeeyee-drawer-item>Three</yeeyee-drawer-item>
-				<yeeyee-drawer-item>Four</yeeyee-drawer-item>
-			</yeeyee-navbar>
+			<Navigation name={props.name} />
 
 			<Drawer open={showSettings} alignment="right" offsetTop="64px">
 				<div className={DocPageStyle.settingsPane}>{props.children}</div>

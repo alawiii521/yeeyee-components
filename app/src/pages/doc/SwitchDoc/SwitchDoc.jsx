@@ -4,7 +4,11 @@ import SwitchSetting from '../../../components/SwitchSetting';
 
 const SwitchDoc = () => {
 	return (
-		<DocPage title="Switch" name="Switch" contentUrl={DocUrls.SWITCH_PATH}>
+		<DocPage
+			title="Switch"
+			name="Switch"
+			contentUrl={DocUrls.SWITCH_CONTENT_PATH}
+		>
 			<SwitchSetting label="checked" />
 		</DocPage>
 	);

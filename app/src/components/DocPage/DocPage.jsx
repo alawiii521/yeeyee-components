@@ -34,9 +34,17 @@ function DocPage(props) {
 
 			<Navigation name={props.name} />
 
-			<Drawer open={showSettings} alignment="right" offsetTop="64px">
-				<div className={DocPageStyle.settingsPane}>{props.children}</div>
-			</Drawer>
+			{props.children && (
+				<>
+					<Drawer open={showSettings} alignment="right" offsetTop="64px">
+						<div className={DocPageStyle.settingsPane}>{props.children}</div>
+					</Drawer>
+					<SettingsButton
+						showSettings={showSettings}
+						toggleSettings={toggleSettings}
+					/>
+				</>
+			)}
 
 			<div className={DocPageStyle.windowWrapper}>
 				<WindowSettings
@@ -53,11 +61,6 @@ function DocPage(props) {
 					contentUrl={props.contentUrl}
 				/>
 			</div>
-
-			<SettingsButton
-				showSettings={showSettings}
-				toggleSettings={toggleSettings}
-			/>
 		</div>
 	);
 }
@@ -81,7 +84,7 @@ DocPage.propTypes = {
 	contentUrl: PropTypes.string.isRequired,
 	title: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
-	children: PropTypes.node.isRequired,
+	children: PropTypes.node,
 };
 
 export default DocPage;

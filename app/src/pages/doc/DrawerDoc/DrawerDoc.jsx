@@ -9,7 +9,7 @@ const DrawerDoc = () => {
 			name="Drawer"
 			contentUrl={DocUrls.DRAWER_CONTENT_PATH}
 		>
-			<SlotSetting initValue={defaultDrawerSlot} />
+			<SlotSetting initValue={defaultDrawerSlot} name="Drawer" />
 		</DocPage>
 	);
 };

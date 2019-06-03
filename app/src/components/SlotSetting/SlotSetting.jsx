@@ -15,7 +15,7 @@ const useSlotState = (initValue = '', name = 'slot') => {
 };
 
 function SlotSetting(props) {
-	const [slotContent, setSlot] = useSlotState(props.initValue);
+	const [slotContent, setSlot] = useSlotState(props.initValue, props.name);
 
 	return (
 		<>

@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import useMessageListener from '../core/UseMessageListener';
 
-function useSlotState(initValue) {
+function useSlotState(name, initValue) {
 	const [value, setValue] = useState(initValue);
 	useMessageListener(e => {
-		setValue(e.data.content);
+		if (name === e.data.name) {
+			setValue(e.data.content);
+		}
 	});
 
 	return value;

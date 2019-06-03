@@ -9,7 +9,7 @@ const SwitchDoc = () => {
 			name="Switch"
 			contentUrl={DocUrls.SWITCH_CONTENT_PATH}
 		>
-			<SwitchSetting label="checked" />
+			<SwitchSetting name="checked" />
 		</DocPage>
 	);
 };

@@ -7,7 +7,7 @@ import useMessageListener from '../../hooks/core/UseMessageListener';
 
 const COMPONENT_NAME = 'switch';
 
-function DocSwitch(props) {
+function SwitchSetting(props) {
 	const [checked, toggleState] = UseToggleReducer(true);
 
 	// window is not available when doing server side rendering
@@ -18,14 +18,14 @@ function DocSwitch(props) {
 
 	return (
 		<div className={DocSwitchStyle.wrapper}>
-			<label>{props.label}</label>
+			<label>{props.name}</label>
 			<Switch checked={checked} handleChange={toggleState} />
 		</div>
 	);
 }
 
-DocSwitch.propTypes = {
-	label: PropTypes.string.isRequired,
+SwitchSetting.propTypes = {
+	name: PropTypes.string.isRequired,
 };
 
-export default DocSwitch;
+export default SwitchSetting;

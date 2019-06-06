@@ -21,6 +21,7 @@ const defaultStyle = css`
 		height: 20px;
 		width: 36px;
 		cursor: pointer;
+		user-select: none;
 	}
 
 	.slider {

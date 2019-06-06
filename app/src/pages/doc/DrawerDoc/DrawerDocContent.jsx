@@ -1,5 +1,8 @@
 import GlobalStyle from '../../../style/GlobalStyle';
 import useSlotState from '../../../hooks/settingsHook/UseSlotState';
+import useSwitchState from '../../../hooks/settingsHook/UseSwitchState';
+import DrawerDirty from '../../../web-components/Drawer/DrawerDirty';
+import DrawerDocConstants from './DrawerDocConstats';
 
 const defaultDrawerSlot = `
 <yeeyee-drawer-item>
@@ -20,16 +23,12 @@ const defaultDrawerSlot = `
 `;
 
 function DrawerDocContent() {
-	const slot = useSlotState('slot', defaultDrawerSlot);
+	const slot = useSlotState(DrawerDocConstants.DEFAULT_SLOT, defaultDrawerSlot);
+	const open = useSwitchState(DrawerDocConstants.OPEN_ATTRIBUTE, true);
 	return (
 		<div>
 			<GlobalStyle />
-			<yeeyee-drawer
-				dangerouslySetInnerHTML={{ __html: slot }}
-				name="Drawer"
-				type="persistent"
-				open
-			/>
+			<DrawerDirty open={open} innerHTML={slot} />
 		</div>
 	);
 }

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useRef, useEffect } from 'react';
 
-function Drawer(props) {
+function DrawerDirty(props) {
 	const drawerRef = useRef();
 
 	useEffect(() => {
@@ -14,20 +14,19 @@ function Drawer(props) {
 
 	return (
 		<yeeyee-drawer
+			dangerouslySetInnerHTML={{ __html: props.innerHTML }}
 			ref={drawerRef}
 			alignment={props.alignment}
 			offset-top={props.offsetTop}
-		>
-			{props.children}
-		</yeeyee-drawer>
+		/>
 	);
 }
 
-Drawer.propTypes = {
+DrawerDirty.propTypes = {
 	open: PropTypes.bool.isRequired,
 	alignment: PropTypes.string,
 	offsetTop: PropTypes.string,
-	children: PropTypes.oneOfType([PropTypes.node, PropTypes.array]),
+	innerHTML: PropTypes.string,
 };
 
-export default Drawer;
+export default DrawerDirty;

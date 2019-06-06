@@ -5,14 +5,12 @@ import UseToggleReducer from '../../hooks/core/UseToggleReducer';
 import WindowService from '../../services/WindowService';
 import useMessageListener from '../../hooks/core/UseMessageListener';
 
-const COMPONENT_NAME = 'switch';
-
 function SwitchSetting(props) {
 	const [checked, toggleState] = UseToggleReducer(true);
 
 	// window is not available when doing server side rendering
 	typeof window !== 'undefined' &&
-		WindowService.postMessage({ name: COMPONENT_NAME, checked });
+		WindowService.postMessage({ name: props.name, checked });
 
 	useMessageListener(toggleState);
 

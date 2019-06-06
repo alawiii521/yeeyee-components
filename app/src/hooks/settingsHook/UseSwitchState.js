@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import useMessageListener from '../core/UseMessageListener';
 
-function useSwitchState() {
-	const [checked, setChecked] = useState(true);
+function useSwitchState(name, initState) {
+	const [checked, setChecked] = useState(initState);
 	const handleEvent = e => {
-		setChecked(e.data.checked);
+		if (name === e.data.name) {
+			setChecked(e.data.checked);
+		}
 	};
 
 	useMessageListener(handleEvent);

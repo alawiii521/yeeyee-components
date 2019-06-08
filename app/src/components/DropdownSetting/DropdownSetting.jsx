@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import WindowService from '../../services/WindowService';
+import DropdownSettingStyle from './DropdownSetting.module.less';
+
 function DropdownSetting(props) {
 	const [value, handleOptionChange] = useOptionsState(props.name);
 	return (
-		<div>
+		<div className={DropdownSettingStyle.wrapper}>
+			<label>{props.name}</label>
 			<select value={value} onChange={handleOptionChange}>
 				<OptionList options={props.options} />
 			</select>

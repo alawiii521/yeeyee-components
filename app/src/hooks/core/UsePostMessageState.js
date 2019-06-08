@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useMessageListener from '../core/UseMessageListener';
+import useMessageListener from './UseMessageListener';
 
 function usePostMessageState(name, initValue) {
 	const [value, setValue] = useState(initValue);

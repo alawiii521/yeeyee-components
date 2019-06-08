@@ -10,7 +10,7 @@ function SwitchSetting(props) {
 
 	// window is not available when doing server side rendering
 	typeof window !== 'undefined' &&
-		WindowService.postMessage({ name: props.name, checked });
+		WindowService.postMessage({ name: props.name, content: checked });
 
 	useMessageListener(toggleState);
 

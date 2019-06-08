@@ -2,10 +2,10 @@ import GlobalStyle from '../../../style/GlobalStyle';
 import SwitchDocContentStyle from './SwitchDocContent.module.less';
 import Switch from '../../../web-components/Switch';
 import WindowService from '../../../services/WindowService';
-import useSwitchState from '../../../hooks/settingsHook/UseSwitchState';
+import usePostMessageState from '../../../hooks/core/UsePostMessageState';
 
 function SwitchDocContent() {
-	const checked = useSwitchState(true);
+	const checked = usePostMessageState('checked', true);
 
 	return (
 		<div className={SwitchDocContentStyle.wrapper}>

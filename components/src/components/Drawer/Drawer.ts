@@ -13,7 +13,7 @@ class Drawer extends YeeYeeComponent {
 	});
 
 	public static get observedAttributes(): string[] {
-		return [Drawer.OPEN];
+		return [Drawer.OPEN, Drawer.ALIGNMENT, Drawer.OFFSET_TOP];
 	}
 
 	protected connected(): void {
@@ -35,7 +35,7 @@ class Drawer extends YeeYeeComponent {
 	}
 
 	protected update(name: string): void {
-		if (name === Drawer.OPEN) {
+		if ([Drawer.OPEN, Drawer.ALIGNMENT].includes(name)) {
 			this.litRender();
 		}
 	}

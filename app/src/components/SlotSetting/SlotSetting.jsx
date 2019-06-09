@@ -1,21 +1,12 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import WindowService from '../../services/WindowService';
 import SlotSettingStyle from './SlotSetting.module.less';
-
-const useSlotState = (initValue = '', name = 'slot') => {
-	const [value, setValue] = useState(initValue);
-
-	const handleSlotChange = e => {
-		setValue(e.target.value);
-		WindowService.postMessage({ name, content: e.target.value });
-	};
-
-	return [value, handleSlotChange];
-};
+import usePostMessageEmitter from '../../hooks/core/UsePostMessageEmitter';
 
 function SlotSetting(props) {
-	const [slotContent, setSlot] = useSlotState(props.initValue, props.name);
+	const [slotContent, setSlot] = usePostMessageEmitter(
+		props.name,
+		props.initValue
+	);
 
 	return (
 		<>

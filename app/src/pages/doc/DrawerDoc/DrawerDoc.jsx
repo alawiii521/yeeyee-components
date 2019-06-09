@@ -1,6 +1,6 @@
 import DocPage from '../../../components/DocPage';
 import DocUrls from '../../../constants/DocUrls';
-import SlotSetting from '../../../components/SlotSetting/SlotSetting';
+import SlotSetting from '../../../components/SlotSetting';
 import { defaultDrawerSlot } from '../../doc/DrawerDoc/DrawerDocContent';
 import SwitchSetting from '../../../components/SwitchSetting/SwitchSetting';
 import DrawerDocConstants from './DrawerDocConstats';

@@ -1,10 +1,9 @@
 import PropTypes from 'prop-types';
-import { useState } from 'react';
-import WindowService from '../../services/WindowService';
 import DropdownSettingStyle from './DropdownSetting.module.less';
+import usePostMessageEmitter from '../../hooks/core/UsePostMessageEmitter';
 
 function DropdownSetting(props) {
-	const [value, handleOptionChange] = useOptionsState(props.name);
+	const [value, handleOptionChange] = usePostMessageEmitter(props.name);
 	return (
 		<div className={DropdownSettingStyle.wrapper}>
 			<label>{props.name}</label>
@@ -25,17 +24,6 @@ function OptionList(props) {
 			</option>
 		));
 	}
-}
-
-function useOptionsState(name = 'options') {
-	const [value, setValue] = useState();
-
-	const handleOptionChange = e => {
-		setValue(e.target.value);
-		WindowService.postMessage({ name, content: e.target.value });
-	};
-
-	return [value, handleOptionChange];
 }
 
 DropdownSetting.propTypes = {

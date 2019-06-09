@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import useMessageListener from './UseMessageListener';
 
-function usePostMessageState(name, initValue) {
+function usePostMessageListenerState(name, initValue) {
 	const [value, setValue] = useState(initValue);
 	useMessageListener(e => {
 		if (name === e.data.name) {
@@ -12,4 +12,4 @@ function usePostMessageState(name, initValue) {
 	return value;
 }
 
-export default usePostMessageState;
+export default usePostMessageListenerState;

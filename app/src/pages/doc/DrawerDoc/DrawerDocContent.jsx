@@ -1,7 +1,7 @@
 import GlobalStyle from '../../../style/GlobalStyle';
 import DrawerDirty from '../../../web-components/Drawer/DrawerDirty';
 import DrawerDocConstants from './DrawerDocConstats';
-import usePostMessageState from '../../../hooks/core/UsePostMessageState';
+import usePostMessageListenerState from '../../../hooks/core/UsePostMessageListenerState';
 
 const defaultDrawerSlot = `
 <yeeyee-drawer-item>
@@ -22,12 +22,15 @@ const defaultDrawerSlot = `
 `;
 
 function DrawerDocContent() {
-	const slot = usePostMessageState(
+	const slot = usePostMessageListenerState(
 		DrawerDocConstants.DEFAULT_SLOT,
 		defaultDrawerSlot
 	);
-	const open = usePostMessageState(DrawerDocConstants.OPEN_ATTRIBUTE, true);
-	const alignment = usePostMessageState(
+	const open = usePostMessageListenerState(
+		DrawerDocConstants.OPEN_ATTRIBUTE,
+		true
+	);
+	const alignment = usePostMessageListenerState(
 		DrawerDocConstants.ALIGNMENT_ATTRIBUTE,
 		'left'
 	);

@@ -34,11 +34,19 @@ function DrawerDocContent() {
 		DrawerDocConstants.ALIGNMENT_ATTRIBUTE,
 		'left'
 	);
+	const offsetTop = usePostMessageListenerState(
+		DrawerDocConstants.OFFSET_TOP_ATTRIBUTE
+	);
 
 	return (
 		<div>
 			<GlobalStyle />
-			<DrawerDirty alignment={alignment} open={open} innerHTML={slot} />
+			<DrawerDirty
+				offsetTop={offsetTop}
+				alignment={alignment}
+				open={open}
+				innerHTML={slot}
+			/>
 		</div>
 	);
 }

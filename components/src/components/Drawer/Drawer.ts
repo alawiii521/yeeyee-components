@@ -35,7 +35,7 @@ class Drawer extends YeeYeeComponent {
 	}
 
 	protected update(name: string): void {
-		if ([Drawer.OPEN, Drawer.ALIGNMENT].includes(name)) {
+		if ([Drawer.OPEN, Drawer.ALIGNMENT, Drawer.OFFSET_TOP].includes(name)) {
 			this.litRender();
 		}
 	}

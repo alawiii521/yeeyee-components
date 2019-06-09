@@ -5,6 +5,7 @@ import { defaultDrawerSlot } from '../../doc/DrawerDoc/DrawerDocContent';
 import SwitchSetting from '../../../components/SwitchSetting/SwitchSetting';
 import DrawerDocConstants from './DrawerDocConstats';
 import DropdownSetting from '../../../components/DropdownSetting/DropdownSetting';
+import TextSetting from '../../../components/TextSetting';
 
 let alignmentOptions = [];
 
@@ -30,6 +31,7 @@ const DrawerDoc = () => {
 				name={DrawerDocConstants.ALIGNMENT_ATTRIBUTE}
 				options={alignmentOptions}
 			/>
+			<TextSetting name={DrawerDocConstants.OFFSET_TOP_ATTRIBUTE} />
 		</DocPage>
 	);
 };

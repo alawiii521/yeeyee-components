@@ -7,12 +7,12 @@ function usePostMessageEmitter(name, initValue) {
 	}
 	const [value, setValue] = useState(initValue);
 
-	const handleOptionChange = e => {
+	const handleStateChange = e => {
 		setValue(e.target.value);
 		WindowService.postMessage({ name, content: e.target.value });
 	};
 
-	return [value, handleOptionChange];
+	return [value, handleStateChange];
 }
 
 export default usePostMessageEmitter;

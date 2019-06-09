@@ -28,7 +28,8 @@
 		"no-console": "warn",
 		"react-hooks/rules-of-hooks": "error",
 		"react-hooks/exhaustive-deps": "warn",
-		"no-debugger": "warn"
+		"no-debugger": "warn",
+		"no-unused-vars": "warn"
 	},
 	"settings": {
 		"react": {

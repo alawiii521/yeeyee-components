@@ -20,7 +20,7 @@ const DrawerDoc = () => {
 		<DocPage
 			title="Drawer"
 			name="Drawer"
-			contentUrl={DocUrls.DRAWER_CONTENT_PATH}
+			contentUrl={DocUrls.Content.DRAWER_CONTENT_PATH}
 		>
 			<SlotSetting
 				initValue={defaultDrawerSlot}

@@ -3,9 +3,9 @@ import DrawerItem from '../../../web-components/DrawerItem';
 import DocUrls from '../../../constants/DocUrls';
 
 const navigationList = [
-	{ content: 'Home', navigateTo: '/' },
-	{ content: 'Drawer', navigateTo: DocUrls.DRAWER_PATH },
-	{ content: 'Swicth', navigateTo: DocUrls.SWITCH_PATH },
+	{ name: 'Home', navigateTo: '/' },
+	{ name: 'Dawer', navigateTo: DocUrls.Main.DRAWER_PATH },
+	{ name: 'Swicth', navigateTo: DocUrls.Main.SWITCH_PATH },
 ];
 
 const handleNavigation = navigateTo => {
@@ -20,7 +20,7 @@ function Navigation(props) {
 					key={index}
 					handleClick={handleNavigation(navigation.navigateTo)}
 				>
-					{navigation.content}
+					{navigation.name}
 				</DrawerItem>
 			))}
 		</yeeyee-navbar>

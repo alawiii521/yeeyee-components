@@ -6,6 +6,7 @@ const navigationList = [
 	{ name: 'Home', navigateTo: '/' },
 	{ name: 'Dawer', navigateTo: DocUrls.Main.DRAWER_PATH },
 	{ name: 'Swicth', navigateTo: DocUrls.Main.SWITCH_PATH },
+	{ name: 'Button', navigateTo: DocUrls.Main.BUTTON_PATH },
 ];
 
 const handleNavigation = navigateTo => {

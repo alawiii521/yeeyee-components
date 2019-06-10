@@ -1,19 +1,21 @@
 import React from 'react';
-import GlobalStyle from '../../../style/GlobalStyle';
-import Head from 'next/head';
+import DocPage from '../../../components/DocPage';
+import DocUrls from '../../../constants/DocUrls';
+import SlotSetting from '../../../components/SlotSetting';
+import ButtonDocConstants from './ButtonDocConstants';
 
 function ButtonDoc() {
 	return (
-		<React.Fragment>
-			<Head>
-				<title>Button</title>
-			</Head>
-			<GlobalStyle />
-			<yeeyee-navbar name="Button" url="/">
-				<yeeyee-drawer-item>Home</yeeyee-drawer-item>
-				<yeeyee-drawer-item>Documentation</yeeyee-drawer-item>
-			</yeeyee-navbar>
-		</React.Fragment>
+		<DocPage
+			title="Button"
+			name="Button"
+			contentUrl={DocUrls.Content.BUTTON_CONTENT_PATH}
+		>
+			<SlotSetting
+				initValue={ButtonDocConstants.INIT_SLOT_VALUE}
+				name={ButtonDocConstants.DEFAULT_SLOT_NAME}
+			/>
+		</DocPage>
 	);
 }
 

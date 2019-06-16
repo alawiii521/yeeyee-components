@@ -40,13 +40,19 @@ class Overlay extends YeeYeeComponent {
 	}
 
 	private handleOverlayClick(): void {
-		this.removeAttribute(Overlay.OPEN);
+		if (this.shouldEmitClose()) {
+			this.emit(Overlay.Event.CLOSE, {});
+		}
+	}
+
+	private shouldEmitClose(): boolean {
+		return !(this.open && this.currentAnimation === fadeOut.name);
 	}
 
 	private handleClose(): void {
 		this.setAnimation(fadeOut.name);
 		this.litRender();
-		this.emit(Overlay.Event.CLOSE, {});
+
 		setTimeout((): void => this.onFadeOutEnd(), animationDuration);
 	}
 

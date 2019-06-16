@@ -7,6 +7,7 @@ const navigationList = [
 	{ name: 'Dawer', navigateTo: DocUrls.Main.DRAWER_PATH },
 	{ name: 'Swicth', navigateTo: DocUrls.Main.SWITCH_PATH },
 	{ name: 'Button', navigateTo: DocUrls.Main.BUTTON_PATH },
+	{ name: 'Overlay', navigateTo: DocUrls.Main.OVERLAY_PATH },
 ];
 
 const handleNavigation = navigateTo => {

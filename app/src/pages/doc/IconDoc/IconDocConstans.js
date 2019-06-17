@@ -1,0 +1,19 @@
+const NAME_ATTRIBUTE = 'name';
+const COLOR_ATTRIBUTE = 'color';
+const WIDTH_ATTRIBUTE = 'width';
+const HEIGHT_ATTRIBUTE = 'height';
+
+const DIMENSIONS_DEVAULT_VALUE = 200;
+
+const NAME_DEFAULT_VALUE = 'close';
+
+const IconDocConstants = {
+	NAME_ATTRIBUTE,
+	COLOR_ATTRIBUTE,
+	WIDTH_ATTRIBUTE,
+	HEIGHT_ATTRIBUTE,
+	NAME_DEFAULT_VALUE,
+	DIMENSIONS_DEVAULT_VALUE,
+};
+
+export default IconDocConstants;

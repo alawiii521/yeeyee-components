@@ -7,7 +7,7 @@ function DropdownSetting(props) {
 	return (
 		<div className={DropdownSettingStyle.wrapper}>
 			<label>{props.name}</label>
-			<select value={value} onChange={handleOptionChange}>
+			<select value={value} onChange={e => handleOptionChange(e.target.value)}>
 				<OptionList options={props.options} />
 			</select>
 		</div>

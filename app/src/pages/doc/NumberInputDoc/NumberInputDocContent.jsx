@@ -22,7 +22,6 @@ function NumberInputDocContent() {
 				label={label}
 				value={value ? parseInt(value) : ''}
 				handleInput={e => {
-					console.log(e.target.getInput().value);
 					WindowService.postMessage({ value: e.target.getInput().value }, true);
 				}}
 			/>

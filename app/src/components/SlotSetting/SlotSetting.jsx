@@ -12,7 +12,7 @@ function SlotSetting(props) {
 		<>
 			<h3 className={SlotSettingStyle.name}>{props.name}</h3>
 			<div className={SlotSettingStyle.textarea}>
-				<textarea onChange={setSlot} value={slotContent} />
+				<textarea onChange={e => setSlot(e.target.value)} value={slotContent} />
 			</div>
 		</>
 	);

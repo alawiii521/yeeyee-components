@@ -33,9 +33,17 @@ class NumberInput extends YeeYeeComponent {
 		`;
 	}
 
-	protected update(name: string): void {
+	protected update(name: string, newValue: string): void {
 		if (name === NumberInput.LABEL) {
 			this.litRender();
+		} else if (name === NumberInput.VALUE) {
+			this.getInput().value = this.getAttribute(NumberInput.VALUE);
+
+			if (newValue) {
+				this.setActiveState(true);
+			} else {
+				this.setActiveState(false);
+			}
 		}
 	}
 

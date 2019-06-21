@@ -9,6 +9,7 @@ const navigationList = [
 	{ name: 'Button', navigateTo: DocUrls.Main.BUTTON_PATH },
 	{ name: 'Overlay', navigateTo: DocUrls.Main.OVERLAY_PATH },
 	{ name: 'Icon', navigateTo: DocUrls.Main.ICON_PATH },
+	{ name: 'NumberInput', navigateTo: DocUrls.Main.NUMBER_INPUT_PATH },
 ];
 
 const handleNavigation = navigateTo => {

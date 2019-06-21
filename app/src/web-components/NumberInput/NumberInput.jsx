@@ -6,7 +6,10 @@ function NumberInput(props) {
 
 	useEffect(() => {
 		inputRef.current.addEventListener('yeeyee-input', props.handleInput);
-	}, [props.handleInput]);
+
+		return () => window.removeEventListener('message', props.handleInput);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	return (
 		<yeeyee-number-input

@@ -26,6 +26,7 @@ const defaultStyle = css`
 		font-weight: bold;
 		text-decoration: none;
 		font-size: ${fontStyle.fontSize.xLarge};
+		flex-shrink: 0;
 	}
 
 	yeeyee-icon-button {

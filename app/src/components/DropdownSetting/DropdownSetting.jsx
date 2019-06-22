@@ -27,7 +27,7 @@ function OptionList(props) {
 }
 
 DropdownSetting.propTypes = {
-	options: PropTypes.array,
+	options: PropTypes.array.isRequired,
 	name: PropTypes.string.isRequired,
 };
 

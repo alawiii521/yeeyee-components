@@ -5,18 +5,18 @@ import UseToggleReducer from '../../hooks/core/UseToggleReducer';
 import WindowService from '../../services/WindowService';
 import useMessageListener from '../../hooks/core/UseMessageListener';
 
-function SwitchSetting(props) {
-	const [checked, toggleState] = UseToggleReducer(true);
+function SwitchSetting({ name, initValue = false }) {
+	const [checked, toggleState] = UseToggleReducer(initValue);
 
 	// window is not available when doing server side rendering
 	typeof window !== 'undefined' &&
-		WindowService.postMessage({ name: props.name, content: checked });
+		WindowService.postMessage({ name: name, content: checked });
 
 	useMessageListener(toggleState);
 
 	return (
 		<div className={DocSwitchStyle.wrapper}>
-			<label>{props.name}</label>
+			<label>{name}</label>
 			<Switch checked={checked} handleChange={toggleState} />
 		</div>
 	);
@@ -24,6 +24,7 @@ function SwitchSetting(props) {
 
 SwitchSetting.propTypes = {
 	name: PropTypes.string.isRequired,
+	initValue: PropTypes.bool,
 };
 
 export default SwitchSetting;

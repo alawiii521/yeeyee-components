@@ -14,8 +14,12 @@ class Navbar extends YeeYeeComponent {
 		PERSISTENT: 'persistent',
 	});
 
+	public static Events = Object.freeze({
+		Open: 'yeeyee-open',
+	});
+
 	public static get observedAttributes(): string[] {
-		return [Navbar.OPEN];
+		return [Navbar.OPEN, Navbar.NAME, Navbar.URL, Navbar.TYPE];
 	}
 
 	protected connected(): void {
@@ -24,7 +28,8 @@ class Navbar extends YeeYeeComponent {
 	}
 
 	protected update(name: string): void {
-		if (name === Navbar.OPEN) {
+		const renderOnAttributes = [Navbar.OPEN, Navbar.NAME, Navbar.URL, Navbar.TYPE];
+		if (renderOnAttributes.includes(name)) {
 			this.litRender();
 		}
 	}
@@ -49,7 +54,7 @@ class Navbar extends YeeYeeComponent {
 	}
 
 	private handleOverlayClick(): void {
-		this.removeAttribute(Navbar.OPEN);
+		this.handleClose();
 	}
 
 	private createName(): TemplateResult {
@@ -92,10 +97,20 @@ class Navbar extends YeeYeeComponent {
 		const open: boolean = this.hasAttribute(Navbar.OPEN);
 
 		if (open) {
-			this.removeAttribute(Navbar.OPEN);
+			this.handleClose();
 		} else {
-			this.setAttribute(Navbar.OPEN, '');
+			this.handleOpen();
 		}
+	}
+
+	private handleOpen(): void {
+		this.setAttribute(Navbar.OPEN, '');
+		this.emit(Navbar.Events.Open, { open: true });
+	}
+
+	private handleClose(): void {
+		this.removeAttribute(Navbar.OPEN);
+		this.emit(Navbar.Events.Open, { open: false });
 	}
 }
 

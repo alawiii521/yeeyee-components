@@ -9,7 +9,7 @@ function OverlayDoc() {
 			title="Overlay"
 			contentUrl={DocUrls.Content.OVERLAY_CONTENT_PATH}
 		>
-			<SwitchSetting name="open" />
+			<SwitchSetting name="open" initValue={true} />
 		</DocPage>
 	);
 }

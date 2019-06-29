@@ -56,8 +56,8 @@ function DocPage(props) {
 				/>
 				<FakeWindow
 					orientation={orientationState}
-					x={x + 'px'}
-					y={y + 'px'}
+					x={x}
+					y={y}
 					contentUrl={props.contentUrl}
 				/>
 			</div>
@@ -70,11 +70,8 @@ const useHandleSize = initValue => {
 
 	const handleInput = e => {
 		const parsedValue = parseInt(e.target.getInput().value);
-		if (parsedValue && parsedValue > MIN_SIZE) {
-			setValue(parsedValue);
-		} else {
-			setValue(200);
-		}
+
+		setValue(parsedValue);
 	};
 
 	return [value, handleInput];

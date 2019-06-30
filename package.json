@@ -6,7 +6,8 @@
   "scripts": {
     "precommit:components": "cd components && npm run precommit",
     "precommit:app": "cd app && npm run precommit",
-    "precommit": "npm-run-all precommit:*"
+    "precommit": "npm-run-all precommit:*",
+    "create-component": "node --inspect ./scripts/createComponent"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   },
   "homepage": "https://github.com/alawiii521/yeeyee-components#readme",
   "devDependencies": {
+    "chalk": "^2.4.2",
     "eslint": "^6.0.1",
     "husky": "^1.3.1",
     "lint-staged": "^8.1.5",

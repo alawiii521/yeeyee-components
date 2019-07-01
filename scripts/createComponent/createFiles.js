@@ -1,6 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 const { promisify } = require('util');
+const ComponentTemplates = require('./ComponentTemplates');
 
 const writeFile = promisify(fs.writeFile);
 
@@ -16,16 +17,16 @@ async function createComponentsFiles(componentName) {
 
 	try {
 		const tsComponentFile = `${directory}/${componentName}.ts`;
-		await writeFile(tsComponentFile, 'Heej');
+		await writeFile(tsComponentFile, ComponentTemplates.component(componentName));
 		console.log(chalk.green(`created: ${tsComponentFile}`));
 
 	
 		const tsIndexFile = `${directory}/index.ts`;
-		await writeFile(tsIndexFile, 'Heej');
+		await writeFile(tsIndexFile, ComponentTemplates.index(componentName));
 		console.log(chalk.green(`created: ${tsIndexFile}`));
 
 		const tsStyleFile = `${directory}/${componentName}.style.ts`;
-		await writeFile(tsStyleFile, 'Heej');
+		await writeFile(tsStyleFile, ComponentTemplates.style);
 		console.log(chalk.green(`created: ${tsStyleFile}`));
 
 	} catch(error){

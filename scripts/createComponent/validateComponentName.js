@@ -1,4 +1,4 @@
-const componentNames = require('../../components/src/constants/componentNames');
+const componentNames = require('../../components/src/constants/ComponentNames');
 
 function validateComponentName(name) {
 	if (!name) {

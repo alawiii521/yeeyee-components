@@ -10,8 +10,10 @@ const COMPONENTS_PATH = './components/src/components';
 const APP_DOC_PATH = './app/pages/doc';
 const APP_DOC_CONTENT_PATH = `${APP_DOC_PATH}/content`;
 const APP_DOC_COMPONENT_PATH = './app/src/pages/doc';
+const APP_ENTRIES_PATH = './components/src/constants/ComponentNames.js';
 
 async function createFiles(componentName){
+	await addComponentEntry(componentName);
 	await createComponentsFiles(componentName);
 	await createAppFiles(componentName);
 }
@@ -67,6 +69,18 @@ async function createAppFiles(componentName) {
 	} catch(error) {
 		console.error(error);
 	}
+}
+
+async function addComponentEntry(componentName){
+	console.log('create entries', componentName);
+
+	const newComponentPropertyString = ',\n\t' + `${componentName}: '${componentName}',\n}`;
+
+	const appEntriesText = fs.readFileSync(APP_ENTRIES_PATH).toString('utf-8');
+
+	const newAppEntriesText = appEntriesText.replace(/,(\n|\r)}/, newComponentPropertyString);
+
+	await writeFile(APP_ENTRIES_PATH, newAppEntriesText);
 }
 
 module.exports = createFiles;

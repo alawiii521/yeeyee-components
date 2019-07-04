@@ -29,7 +29,7 @@ readlineInterface
 		readlineInterface.prompt();
 	})
 	.on('close', () => {
-		console.log('Bye!!!');
+		console.log('\nBye!!!');
 		process.exit(0);
 	});
 

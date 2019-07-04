@@ -10,10 +10,12 @@ const COMPONENTS_PATH = './components/src/components';
 const APP_DOC_PATH = './app/pages/doc';
 const APP_DOC_CONTENT_PATH = `${APP_DOC_PATH}/content`;
 const APP_DOC_COMPONENT_PATH = './app/src/pages/doc';
-const APP_ENTRIES_PATH = './components/src/constants/ComponentNames.js';
+const COMPONENT_ENTRIES_PATH = './components/src/constants/ComponentNames.js';
+const APP_DOC_URL_PATH = './app/src/constants/DocUrls.js';
 
 async function createFiles(componentName){
 	await addComponentEntry(componentName);
+	await addAppDocUrls(componentName);
 	await createComponentsFiles(componentName);
 	await createAppFiles(componentName);
 }
@@ -72,15 +74,41 @@ async function createAppFiles(componentName) {
 }
 
 async function addComponentEntry(componentName){
-	console.log('create entries', componentName);
-
+	const componentEntriesText = fs.readFileSync(COMPONENT_ENTRIES_PATH).toString('utf-8');
+	
 	const newComponentPropertyString = ',\n\t' + `${componentName}: '${componentName}',\n}`;
+	const newComponentEntriesText = componentEntriesText.replace(/,(\n|\r)}/, newComponentPropertyString);
+	await writeFile(COMPONENT_ENTRIES_PATH, newComponentEntriesText);
 
-	const appEntriesText = fs.readFileSync(APP_ENTRIES_PATH).toString('utf-8');
+	console.log(chalk.green('added:', componentName, 'to', COMPONENT_ENTRIES_PATH));
+}
 
-	const newAppEntriesText = appEntriesText.replace(/,(\n|\r)}/, newComponentPropertyString);
+async function addAppDocUrls(componentName){
+	const appDocUrlText = fs.readFileSync(APP_DOC_URL_PATH).toString('utf-8');
 
-	await writeFile(APP_ENTRIES_PATH, newAppEntriesText);
+	const newAppDocNameString = 
+	`const ${camelToSnake(componentName)}_NAME = '/${camelToKebab(componentName)}';\n`;
+	let newAppDocUrlText = appDocUrlText.replace(/\/\/ component names(\r|\n)/, newAppDocNameString);
+
+	const newAppDocContentString = 
+	`Content: {\n\t\t${camelToSnake(componentName)}_CONTENT_PATH: \`\${DOC_PATH}\${CONTENT_PATH}\${${camelToSnake(componentName)}_NAME}\`,\n`;
+	newAppDocUrlText = newAppDocUrlText.replace(/Content: {(\r|\n)/, newAppDocContentString);
+
+
+	const newAppDocMainString = `Main: {\n\t\t${camelToSnake(componentName)}_PATH: \`\${DOC_PATH}\${${camelToSnake(componentName)}_NAME}\`,\n`;
+	newAppDocUrlText = newAppDocUrlText.replace(/Main: {(\r|\n)/, newAppDocMainString);
+
+	await writeFile(APP_DOC_URL_PATH, newAppDocUrlText);
+
+	console.log(chalk.green('added:', componentName, 'to', APP_DOC_URL_PATH));
+}
+
+function camelToSnake(str){
+	return str.split(/(?=[A-Z])/).join('_').toUpperCase();
+}
+
+function camelToKebab(str){
+	return str.split(/(?=[A-Z])/).join('-').toLowerCase();
 }
 
 module.exports = createFiles;

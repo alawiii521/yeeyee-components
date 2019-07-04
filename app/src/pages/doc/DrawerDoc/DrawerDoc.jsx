@@ -26,7 +26,10 @@ const DrawerDoc = () => {
 				initValue={defaultDrawerSlot}
 				name={DrawerDocConstants.DEFAULT_SLOT}
 			/>
-			<SwitchSetting name={DrawerDocConstants.OPEN_ATTRIBUTE} />
+			<SwitchSetting
+				name={DrawerDocConstants.OPEN_ATTRIBUTE}
+				initValue={true}
+			/>
 			<DropdownSetting
 				name={DrawerDocConstants.ALIGNMENT_ATTRIBUTE}
 				options={alignmentOptions}

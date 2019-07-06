@@ -16,6 +16,7 @@ class MyDocument extends Document {
 						href="/static/favicon.ico"
 					/>
 
+					{/* components */}
 					<script src="/static/yeeyee-components/yeeyee-button.js" />
 					<script src="/static/yeeyee-components/yeeyee-icon.js" />
 					<script src="/static/yeeyee-components/yeeyee-button-icon.js" />

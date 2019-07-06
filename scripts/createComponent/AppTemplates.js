@@ -1,3 +1,5 @@
+const StringUtility = require('./StringUtility');
+
 const doc = componentName => `import ${componentName}Doc from '../../src/pages/doc/${componentName}Doc';
 
 export default ${componentName}Doc;
@@ -16,7 +18,7 @@ function ${componentName}Doc() {
 		<DocPage
 			name="${componentName}"
 			title="${componentName}"
-			contentUrl={DocUrls.Content.${componentName.toUpperCase()}_CONTENT_PATH}
+			contentUrl={DocUrls.Content.${StringUtility.camelToSnake(componentName)}_CONTENT_PATH}
 		/>
 	);
 }
@@ -33,7 +35,7 @@ function ${componentName}DocContent() {
 	return (
 		<div>
 			<GlobalStyle />
-			<h1>Hello ${componentName}!!!</h1>
+			<yeeyee-${StringUtility.camelToKebab(componentName)} />
 		</div>
 	);
 }

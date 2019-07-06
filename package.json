@@ -7,7 +7,7 @@
     "precommit:components": "cd components && npm run precommit",
     "precommit:app": "cd app && npm run precommit",
     "precommit": "npm-run-all precommit:*",
-    "create-component": "node --inspect ./scripts/createComponent"
+    "create-component": "node ./scripts/createComponent"
   },
   "repository": {
     "type": "git",

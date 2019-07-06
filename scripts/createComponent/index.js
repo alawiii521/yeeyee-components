@@ -21,8 +21,13 @@ readlineInterface
 		const result = validateComponentName(name);
 
 		if (result.valid) {
-			await createFiles(name);
-			console.log(chalk.green('Success!!!'));
+			try{
+				await createFiles(name);
+				console.log(chalk.green('Finished!!!'));
+			} catch(error){
+				console.log(chalk.red('Failed!!!'));
+				console.error(error);
+			}
 		} else {
 			console.log(chalk.red(result.message));
 		}

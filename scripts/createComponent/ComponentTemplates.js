@@ -1,3 +1,5 @@
+const StringUtility = require('./StringUtility');
+
 const index = componentName =>  `export { default } from './${componentName}';
 `;
 
@@ -24,12 +26,12 @@ class ${componentName} extends YeeYeeComponent {
 			<style>
 				\${${componentName}Style.default}
 			</style>
-			<div>Hello ${componentName}!!!</div>
+			<h1>Hello ${componentName}!!!</h1>
 		\`;
 	}
 }
 
-window.customElements.define('yeeyee-${componentName.toLowerCase()}', ${componentName});
+window.customElements.define('yeeyee-${StringUtility.camelToKebab(componentName)}', ${componentName});
 
 export default ${componentName};
 `;

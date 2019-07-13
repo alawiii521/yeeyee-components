@@ -3,6 +3,7 @@ const DOC_PATH = '/doc';
 const CONTENT_PATH = '/content';
 
 // component names
+const DROPDOWN_NAME = '/dropdown';
 const DRAWER_NAME = '/drawer';
 const SWITCH_NAME = '/switch';
 const BUTTON_NAME = '/button';
@@ -15,6 +16,7 @@ const DocUrls = {
 	DOC_PATH,
 	CONTENT_PATH,
 	Content: {
+		DROPDOWN_CONTENT_PATH: `${DOC_PATH}${CONTENT_PATH}${DROPDOWN_NAME}`,
 		DRAWER_CONTENT_PATH: `${DOC_PATH}${CONTENT_PATH}${DRAWER_NAME}`,
 		SWITCH_CONTENT_PATH: `${DOC_PATH}${CONTENT_PATH}${SWITCH_NAME}`,
 		BUTTON_CONTENT_PATH: `${DOC_PATH}${CONTENT_PATH}${BUTTON_NAME}`,
@@ -24,6 +26,7 @@ const DocUrls = {
 		NAVBAR_CONTENT_PATH: `${DOC_PATH}${CONTENT_PATH}${NAVBAR_NAME}`,
 	},
 	Main: {
+		DROPDOWN_PATH: `${DOC_PATH}${DROPDOWN_NAME}`,
 		DRAWER_PATH: `${DOC_PATH}${DRAWER_NAME}`,
 		SWITCH_PATH: `${DOC_PATH}${SWITCH_NAME}`,
 		BUTTON_PATH: `${DOC_PATH}${BUTTON_NAME}`,

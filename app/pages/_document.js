@@ -17,6 +17,7 @@ class MyDocument extends Document {
 					/>
 
 					{/* components */}
+					<script src="/static/yeeyee-components/yeeyee-dropdown.js" />
 					<script src="/static/yeeyee-components/yeeyee-button.js" />
 					<script src="/static/yeeyee-components/yeeyee-icon.js" />
 					<script src="/static/yeeyee-components/yeeyee-button-icon.js" />

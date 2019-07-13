@@ -8,6 +8,7 @@ const ComponentNames = {
 	DrawerItem: 'DrawerItem',
 	NumberInput: 'NumberInput',
 	Switch: 'Switch',
+	Dropdown: 'Dropdown',
 };
 
 module.exports = ComponentNames;

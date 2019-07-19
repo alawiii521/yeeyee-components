@@ -2,10 +2,12 @@ import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent';
 import DropdownStyle from './Dropdown.style';
 import WidnowUtility from '../../utility/WindowUtility';
+import TransitionState from '../../utility/TransitionState';
 
 class Dropdown extends YeeYeeComponent {
 	private isSelected: boolean = false;
 	private isOpen: boolean = false;
+	private transitionState: TransitionState;
 	protected update(): void {}
 
 	protected connected(): void {
@@ -19,6 +21,9 @@ class Dropdown extends YeeYeeComponent {
 		if (WidnowUtility.hasParent()) {
 			window.parent.addEventListener('click', this.handleFocusOut);
 		}
+
+		const elementGetter: () => HTMLElement = (): HTMLElement => this.shadowRoot.querySelector('.option-list');
+		this.transitionState = new TransitionState(elementGetter);
 	}
 
 	protected disconnectedCallback(): void {
@@ -52,7 +57,7 @@ class Dropdown extends YeeYeeComponent {
 	private shouldCloseDropdown(e: Event): boolean {
 		const optionList = this.querySelectorAll('option');
 
-		if (optionList && optionList.length > 0) {
+		if (this.isOpen && optionList && optionList.length > 0) {
 			const optionArray = Array.from(optionList);
 
 			if (e.target !== this && !optionArray.includes(e.target as HTMLOptionElement)) {
@@ -76,13 +81,20 @@ class Dropdown extends YeeYeeComponent {
 	}
 
 	private closeDropdown(): void {
-		this.isOpen = false;
-		this.litRender();
+		this.transitionState.removeTransition(
+			'open-option-list',
+			200,
+			(): void => {
+				this.isOpen = false;
+				this.litRender();
+			}
+		);
 	}
 
 	private openDropdown(): void {
 		this.isOpen = true;
 		this.litRender();
+		this.transitionState.applyTransition({ newClass: 'open-option-list' }, 20);
 	}
 }
 

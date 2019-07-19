@@ -41,20 +41,15 @@ const defaultStyle = css`
 		min-width: 100%;
 		box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
 			0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-		animation: open-option-list 0.3s both;
+		transition: transform 0.15s linear, opacity 0.15s linear;
 		transform-origin: 0% 100%;
+		opacity: 0;
+		transform: scale(0.95);
 	}
 
-	@keyframes open-option-list {
-		from {
-			opacity: 0.7;
-			transform: scale(0.95);
-		}
-
-		to {
-			opacity: 1;
-			transform: scale(1);
-		}
+	.open-option-list {
+		opacity: 1;
+		transform: scale(1);
 	}
 `;
 

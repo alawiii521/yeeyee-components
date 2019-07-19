@@ -16,6 +16,7 @@
 	"rules": {
 		"indent": 0,
 		"@typescript-eslint/indent": 0,
+		"@typescript-eslint/no-explicit-any": 0,
 		"@typescript-eslint/no-var-requires": 0,
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["error", "single"],

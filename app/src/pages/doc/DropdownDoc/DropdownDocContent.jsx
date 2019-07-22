@@ -12,11 +12,11 @@ function DropdownDocContent() {
 		>
 			<GlobalStyle />
 			<yeeyee-dropdown>
-				<option>One</option>
-				<option>two</option>
-				<option>three</option>
-				<option>four</option>
-				<option>five</option>
+				<option value="one">One</option>
+				<option value="two">two</option>
+				<option value="three">three</option>
+				<option value="four">four</option>
+				<option value="five">five</option>
 			</yeeyee-dropdown>
 		</div>
 	);

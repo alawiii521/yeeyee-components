@@ -5,7 +5,7 @@ import WidnowUtility from '../../utility/WindowUtility';
 import TransitionState from '../../utility/TransitionState';
 
 class Dropdown extends YeeYeeComponent {
-	private isSelected: boolean = false;
+	private selectedOption: HTMLOptionElement = null;
 	private isOpen: boolean = false;
 	private transitionState: TransitionState;
 	protected update(): void {}
@@ -38,9 +38,11 @@ class Dropdown extends YeeYeeComponent {
 		return html`
 			<style>
 				${DropdownStyle.default}
-				${DropdownStyle.selected(this.isSelected)}
+				${DropdownStyle.selected(Boolean(this.selectedOption) || this.isOpen)}
+				${DropdownStyle.open(this.isOpen)}
 			</style>
 			<div class="container" @click=${this.handleContainerClick}>
+				<span>${this.selectedOption ? this.selectedOption.innerText : ''}</span>
 				<label>Age</label>
 				<yeeyee-icon color="#9e9e9e" name="arrow_drop_down"></yeeyee-icon>
 				${this.isOpen ? this.renderOptionList() : null}
@@ -70,20 +72,30 @@ class Dropdown extends YeeYeeComponent {
 
 	private renderOptionList(): TemplateResult {
 		return html`
-			<div class="option-list">
+			<div @click=${(e: Event): void => this.handleOptionClick(e)} class="option-list">
 				<slot></slot>
 			</div>
 		`;
 	}
 
-	private handleContainerClick(): void {
-		this.openDropdown();
+	private handleOptionClick(e: Event): void {
+		const target = e.target as HTMLOptionElement;
+		this.selectedOption = target;
+		target.tabIndex = 0;
+		target.focus();
+		this.closeDropdown();
+	}
+
+	private handleContainerClick(e: Event): void {
+		if (!(e.target instanceof HTMLOptionElement)) {
+			this.openDropdown();
+		}
 	}
 
 	private closeDropdown(): void {
 		this.transitionState.removeTransition(
 			'open-option-list',
-			200,
+			150,
 			(): void => {
 				this.isOpen = false;
 				this.litRender();
@@ -95,6 +107,7 @@ class Dropdown extends YeeYeeComponent {
 		this.isOpen = true;
 		this.litRender();
 		this.transitionState.applyTransition({ newClass: 'open-option-list' }, 20);
+		this.selectedOption && this.selectedOption.focus();
 	}
 }
 

@@ -10,6 +10,11 @@ const defaultStyle = css`
 		background: rgba(0, 0, 0, 0.08);
 	}
 
+	::slotted(option:focus) {
+		background: rgba(0, 0, 0, 0.14);
+		outline: none;
+	}
+
 	.container {
 		position: relative;
 		display: flex;
@@ -29,10 +34,15 @@ const defaultStyle = css`
 	}
 
 	label {
-		margin-bottom: 4px;
+		position: absolute;
 		color: #9e9e9e;
 		cursor: pointer;
-		transition: transform 0.2s linear;
+		transition: bottom 0.15s ease-in-out, transform 0.2s linear;
+	}
+
+	span {
+		margin-bottom: ${4 / 16}rem;
+		text-indent: ${2 / 16}rem;
 	}
 
 	.option-list {
@@ -53,17 +63,25 @@ const defaultStyle = css`
 	}
 `;
 
+function open(isOpen: boolean): string {
+	return css`
+		display: ${isOpen ? 'block' : 'none'};
+	`;
+}
+
 function selected(isSelected: boolean): string {
 	if (isSelected) {
 		return css`
 			label {
-				transform: translateY(-25px) scale(0.9);
+				transform: scale(0.9);
+				bottom: ${28 / 16}rem;
 			}
 		`;
 	} else {
 		return css`
 			label {
-				transform: translateY(0px) scale(1);
+				transform: scale(1);
+				bottom: ${4 / 16}rem;
 			}
 		`;
 	}

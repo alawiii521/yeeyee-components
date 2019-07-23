@@ -1,6 +1,12 @@
 import GlobalStyle from '../../../style/GlobalStyle';
+import usePostMessageListenerState from '../../../hooks/core/UsePostMessageListenerState';
+import DropdownDocConstant from './DropdownDocConstant';
 
 function DropdownDocContent() {
+	const slot = usePostMessageListenerState(
+		DropdownDocConstant.DEFAULT_SLOT_NAME,
+		DropdownDocConstant.INIT_DEFAULT_SLOT_VALUE
+	);
 	return (
 		<div
 			style={{
@@ -11,13 +17,7 @@ function DropdownDocContent() {
 			}}
 		>
 			<GlobalStyle />
-			<yeeyee-dropdown>
-				<option value="one">One</option>
-				<option value="two">two</option>
-				<option value="three">three</option>
-				<option value="four">four</option>
-				<option value="five">five</option>
-			</yeeyee-dropdown>
+			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
 		</div>
 	);
 }

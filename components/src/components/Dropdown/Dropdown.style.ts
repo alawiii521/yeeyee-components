@@ -73,8 +73,9 @@ function selected(isSelected: boolean): string {
 	if (isSelected) {
 		return css`
 			label {
-				transform: scale(0.9);
+				transform: scale(0.85);
 				bottom: ${28 / 16 + 'rem'};
+				color: ${ColorStyle.primary};
 			}
 		`;
 	} else {

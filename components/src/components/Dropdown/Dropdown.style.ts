@@ -41,8 +41,8 @@ const defaultStyle = css`
 	}
 
 	span {
-		margin-bottom: ${4 / 16}rem;
-		text-indent: ${2 / 16}rem;
+		margin-bottom: ${4 / 16 + 'rem'};
+		text-indent: ${2 / 16 + 'rem'};
 	}
 
 	.option-list {
@@ -74,14 +74,14 @@ function selected(isSelected: boolean): string {
 		return css`
 			label {
 				transform: scale(0.9);
-				bottom: ${28 / 16}rem;
+				bottom: ${28 / 16 + 'rem'};
 			}
 		`;
 	} else {
 		return css`
 			label {
 				transform: scale(1);
-				bottom: ${4 / 16}rem;
+				bottom: ${4 / 16 + 'rem'};
 			}
 		`;
 	}

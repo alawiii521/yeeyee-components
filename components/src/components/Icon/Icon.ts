@@ -70,32 +70,30 @@ class Icon extends YeeYeeComponent {
 	}
 
 	private create(icon: string): void {
-		this.download(icon).then(
-			(icon): void => {
-				if (icon) {
-					const template = document.createElement('template');
-					template.innerHTML = icon;
-					this.setIcon(template);
+		this.download(icon).then((icon): void => {
+			if (icon) {
+				const template = document.createElement('template');
+				template.innerHTML = icon;
+				this.setIcon(template);
 
-					const color = this.get(Icon.COLOR);
-					const width = this.get(Icon.WIDTH);
-					const height = this.get(Icon.HEIGHT);
+				const color = this.get(Icon.COLOR);
+				const width = this.get(Icon.WIDTH);
+				const height = this.get(Icon.HEIGHT);
 
-					this.setColor(color);
+				this.setColor(color);
 
-					if (width) {
-						this.setWidth(width);
-					}
-
-					if (height) {
-						this.setHeight(height);
-					}
-					this.litRender();
-				} else {
-					throw 'no icon was downloaded';
+				if (width) {
+					this.setWidth(width);
 				}
+
+				if (height) {
+					this.setHeight(height);
+				}
+				this.litRender();
+			} else {
+				throw 'no icon was downloaded';
 			}
-		);
+		});
 	}
 
 	private async download(iconName: string): Promise<string> {

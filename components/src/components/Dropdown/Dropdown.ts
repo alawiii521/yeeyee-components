@@ -93,14 +93,10 @@ class Dropdown extends YeeYeeComponent {
 	}
 
 	private closeDropdown(): void {
-		this.transitionState.removeTransition(
-			'open-option-list',
-			150,
-			(): void => {
-				this.isOpen = false;
-				this.litRender();
-			}
-		);
+		this.transitionState.removeTransition('open-option-list', 150, (): void => {
+			this.isOpen = false;
+			this.litRender();
+		});
 	}
 
 	private openDropdown(): void {

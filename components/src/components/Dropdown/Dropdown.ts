@@ -45,7 +45,7 @@ class Dropdown extends YeeYeeComponent {
 				<span>${this.selectedOption ? this.selectedOption.innerText : ''}</span>
 				<label>Age</label>
 				<yeeyee-icon color="#9e9e9e" name="arrow_drop_down"></yeeyee-icon>
-				${this.isOpen ? this.renderOptionList() : null}
+				${this.renderOptionList()}
 			</div>
 		`;
 	}

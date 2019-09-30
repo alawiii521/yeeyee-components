@@ -12,11 +12,16 @@ function DropdownDocContent() {
 			style={{
 				display: 'flex',
 				alignItems: 'center',
-				justifyContent: 'center',
-				height: '95vh',
+				justifyContent: 'space-between',
+				flexDirection: 'column',
+				height: '100vh',
+				padding: '2rem',
+				boxSizing: 'border-box',
 			}}
 		>
 			<GlobalStyle />
+			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
+			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
 			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
 		</div>
 	);

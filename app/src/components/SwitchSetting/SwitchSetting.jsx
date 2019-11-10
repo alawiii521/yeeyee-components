@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import Switch from '../../web-components/Switch';
 import DocSwitchStyle from './SwitchSetting.module.less';
 import UseToggleReducer from '../../hooks/core/UseToggleReducer';
@@ -8,9 +9,11 @@ import useMessageListener from '../../hooks/core/UseMessageListener';
 function SwitchSetting({ name, initValue = false }) {
 	const [checked, toggleState] = UseToggleReducer(initValue);
 
-	// window is not available when doing server side rendering
-	typeof window !== 'undefined' &&
-		WindowService.postMessage({ name: name, content: checked });
+	useEffect(() => {
+		// window is not available when doing server side rendering
+		typeof window !== 'undefined' &&
+			WindowService.postMessage({ name: name, content: checked });
+	}, [name, checked]);
 
 	useMessageListener(toggleState);
 

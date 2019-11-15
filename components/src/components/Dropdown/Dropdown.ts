@@ -1,13 +1,15 @@
 import { html, TemplateResult } from 'lit-html';
 import YeeYeeComponent from '../YeeYeeComponent';
 import DropdownStyle from './Dropdown.style';
-import WidnowUtility from '../../utility/WindowUtility';
+import WindowUtility from '../../utility/WindowUtility';
 import TransitionState from '../../utility/TransitionState';
 
 class Dropdown extends YeeYeeComponent {
 	private selectedOption: HTMLOptionElement = null;
 	private isOpen: boolean = false;
 	private transitionState: TransitionState;
+	private isOptionListOutsideWindow: boolean = false;
+
 	protected update(): void {}
 
 	protected connected(): void {
@@ -18,7 +20,7 @@ class Dropdown extends YeeYeeComponent {
 
 		window.addEventListener('click', this.handleFocusOut);
 
-		if (WidnowUtility.hasParent()) {
+		if (WindowUtility.hasParent()) {
 			window.parent.addEventListener('click', this.handleFocusOut);
 		}
 
@@ -29,7 +31,7 @@ class Dropdown extends YeeYeeComponent {
 	protected disconnectedCallback(): void {
 		window.removeEventListener('click', this.handleFocusOut);
 
-		if (WidnowUtility.hasParent()) {
+		if (WindowUtility.hasParent()) {
 			window.parent.removeEventListener('click', this.handleFocusOut);
 		}
 	}
@@ -40,6 +42,7 @@ class Dropdown extends YeeYeeComponent {
 				${DropdownStyle.default}
 				${DropdownStyle.selected(Boolean(this.selectedOption) || this.isOpen)}
 				${DropdownStyle.open(this.isOpen)}
+				${DropdownStyle.optionListPlacement(this.isOptionListOutsideWindow)}
 			</style>
 			<div class="container" @click=${this.handleContainerClick}>
 				<span>${this.selectedOption ? this.selectedOption.innerText : ''}</span>
@@ -100,8 +103,16 @@ class Dropdown extends YeeYeeComponent {
 	}
 
 	private openDropdown(): void {
+		this.isOptionListOutsideWindow = false;
 		this.isOpen = true;
 		this.litRender();
+
+		const rect = this.shadowRoot.querySelector('.option-list').getBoundingClientRect();
+		const elementBottom = rect.y + rect.height;
+		this.isOptionListOutsideWindow = window.innerHeight - elementBottom < 0;
+
+		this.litRender();
+
 		this.transitionState.applyTransition({ newClass: 'open-option-list' }, 20);
 		this.selectedOption && this.selectedOption.focus();
 	}

@@ -47,7 +47,6 @@ const defaultStyle = css`
 
 	.option-list {
 		position: absolute;
-		top: 100%;
 		background: ${ColorStyle.white};
 		min-width: 100%;
 		box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
@@ -91,4 +90,12 @@ function selected(isSelected: boolean): string {
 	}
 }
 
-export default { default: defaultStyle, selected, open };
+function optionListPlacement(isOutisdeWindow: boolean): string {
+	return css`
+		.option-list {
+			${isOutisdeWindow ? 'bottom' : 'top'}: 100%;
+		}
+	`;
+}
+
+export default { default: defaultStyle, selected, open, optionListPlacement };

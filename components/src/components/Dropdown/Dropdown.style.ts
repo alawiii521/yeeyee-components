@@ -55,6 +55,7 @@ const defaultStyle = css`
 		transform-origin: 0% 100%;
 		opacity: 0;
 		transform: scale(0.95);
+		z-index: 500;
 	}
 
 	.open-option-list {

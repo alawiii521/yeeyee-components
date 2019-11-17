@@ -1,12 +1,14 @@
 import GlobalStyle from '../../../style/GlobalStyle';
 import usePostMessageListenerState from '../../../hooks/core/UsePostMessageListenerState';
 import DropdownDocConstant from './DropdownDocConstant';
+import Dropdown from '../../../web-components//Dropdown//DropdownDirty';
 
 function DropdownDocContent() {
 	const slot = usePostMessageListenerState(
 		DropdownDocConstant.DEFAULT_SLOT_NAME,
 		DropdownDocConstant.INIT_DEFAULT_SLOT_VALUE
 	);
+
 	return (
 		<div
 			style={{
@@ -20,12 +22,12 @@ function DropdownDocContent() {
 			}}
 		>
 			<GlobalStyle />
-			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
-			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
-			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
-			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
-			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
-			<yeeyee-dropdown dangerouslySetInnerHTML={{ __html: slot }} />
+			<Dropdown innerHTML={slot} />
+			<Dropdown innerHTML={slot} />
+			<Dropdown innerHTML={slot} />
+			<Dropdown innerHTML={slot} />
+			<Dropdown innerHTML={slot} />
+			<Dropdown innerHTML={slot} />
 		</div>
 	);
 }

@@ -2,22 +2,22 @@ import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
 function Overlay({ open, handleClose }) {
-	const inputRef = useRef();
+	const ref = useRef();
 
 	useEffect(() => {
-		inputRef.current.addEventListener('close', handleClose);
+		ref.current.addEventListener('close', handleClose);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
 		if (open) {
-			inputRef.current.setAttribute('open', '');
+			ref.current.setAttribute('open', '');
 		} else {
-			inputRef.current.removeAttribute('open');
+			ref.current.removeAttribute('open');
 		}
 	}, [open]);
 
-	return <yeeyee-overlay ref={inputRef} />;
+	return <yeeyee-overlay ref={ref} />;
 }
 
 Overlay.propTypes = {

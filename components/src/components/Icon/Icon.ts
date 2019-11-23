@@ -97,16 +97,12 @@ class Icon extends YeeYeeComponent {
 	}
 
 	private async download(iconName: string): Promise<string> {
-		try {
-			const res = await fetch(`${ICON_PATH}/${iconName}.svg`);
-			if (res.ok) {
-				const icon = await res.text();
-				return icon;
-			} else {
-				throw res;
-			}
-		} catch (error) {
-			throw error;
+		const res = await fetch(`${ICON_PATH}/${iconName}.svg`);
+		if (res.ok) {
+			const icon = await res.text();
+			return icon;
+		} else {
+			throw res;
 		}
 	}
 }

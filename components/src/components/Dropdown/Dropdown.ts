@@ -5,6 +5,12 @@ import WindowUtility from '../../utility/WindowUtility';
 import TransitionState from '../../utility/TransitionState';
 
 class Dropdown extends YeeYeeComponent {
+	public static VALUE = 'value';
+
+	public static get observedAttributes(): string[] {
+		return [Dropdown.VALUE];
+	}
+
 	public static Events = Object.freeze({
 		Change: 'yeeyee-change',
 	});
@@ -14,7 +20,11 @@ class Dropdown extends YeeYeeComponent {
 	private transitionState: TransitionState;
 	private isOptionListOutsideWindow: boolean = false;
 
-	protected update(): void {}
+	protected update(name: string, newValue: string): void {
+		if (name === Dropdown.VALUE) {
+			this.handleValueChange(newValue);
+		}
+	}
 
 	protected connected(): void {
 		this.handleContainerClick = this.handleContainerClick.bind(this);
@@ -85,19 +95,24 @@ class Dropdown extends YeeYeeComponent {
 		`;
 	}
 
+	private handleValueChange(value: string): void {
+		this.selectedOption = Array.from(this.querySelectorAll('option')).find(
+			(option: HTMLOptionElement): boolean => option.value === value
+		);
+
+		this.litRender();
+	}
+
 	private handleOptionClick(e: Event): void {
 		const target = e.target as HTMLOptionElement;
-		this.selectedOption = target;
 
-		const value = this.selectedOption?.value;
+		const value = target.value;
 
 		this.emit(Dropdown.Events.Change, {
 			value,
 			index: this.getOptionIndex(value),
 		});
 
-		target.tabIndex = 0;
-		target.focus();
 		this.closeDropdown();
 	}
 

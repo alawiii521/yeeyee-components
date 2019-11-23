@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import GlobalStyle from '../../../style/GlobalStyle';
 import usePostMessageListenerState from '../../../hooks/core/UsePostMessageListenerState';
 import DropdownDocConstant from './DropdownDocConstant';
@@ -8,6 +9,8 @@ function DropdownDocContent() {
 		DropdownDocConstant.DEFAULT_SLOT_NAME,
 		DropdownDocConstant.INIT_DEFAULT_SLOT_VALUE
 	);
+
+	const [value, setValue] = useState();
 
 	return (
 		<div
@@ -22,12 +25,16 @@ function DropdownDocContent() {
 			}}
 		>
 			<GlobalStyle />
-			<Dropdown innerHTML={slot} />
-			<Dropdown innerHTML={slot} />
-			<Dropdown innerHTML={slot} />
-			<Dropdown innerHTML={slot} />
-			<Dropdown innerHTML={slot} />
-			<Dropdown innerHTML={slot} />
+			{Array(5)
+				.fill({
+					value: value,
+					handleChange: e => setValue(e.detail.value),
+					innerHTML: slot,
+				})
+				.map((dropdownProps, index) => {
+					dropdownProps.key = index;
+					return <Dropdown key={index} {...dropdownProps} />;
+				})}
 		</div>
 	);
 }

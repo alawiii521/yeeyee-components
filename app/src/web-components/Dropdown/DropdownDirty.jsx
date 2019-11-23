@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
-function DropdwonDirty({ handleChange, innerHTML }) {
+function DropdwonDirty({ value, handleChange, innerHTML }) {
 	const ref = useRef();
 
 	useEffect(() => {
@@ -12,6 +12,7 @@ function DropdwonDirty({ handleChange, innerHTML }) {
 	return (
 		<yeeyee-dropdown
 			ref={ref}
+			value={value}
 			dangerouslySetInnerHTML={{ __html: innerHTML }}
 		></yeeyee-dropdown>
 	);
@@ -20,6 +21,7 @@ function DropdwonDirty({ handleChange, innerHTML }) {
 DropdwonDirty.propTypes = {
 	handleChange: PropTypes.func,
 	innerHTML: PropTypes.string,
+	value: PropTypes.string,
 };
 
 export default DropdwonDirty;

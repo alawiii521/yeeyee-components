@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef } from 'react';
 
-function Dropdwon({ value, children, handleChange }) {
+function Dropdwon({ label, value, children, handleChange }) {
 	const ref = useRef();
 
 	useEffect(() => {
@@ -10,7 +10,7 @@ function Dropdwon({ value, children, handleChange }) {
 	}, []);
 
 	return (
-		<yeeyee-dropdown value={value} ref={ref}>
+		<yeeyee-dropdown label={label} value={value} ref={ref}>
 			{children}
 		</yeeyee-dropdown>
 	);
@@ -20,6 +20,7 @@ Dropdwon.propTypes = {
 	children: PropTypes.oneOfType([PropTypes.node, PropTypes.array]),
 	handleChange: PropTypes.func,
 	value: PropTypes.string,
+	label: PropTypes.string,
 };
 
 export default Dropdwon;

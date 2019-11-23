@@ -6,9 +6,10 @@ import TransitionState from '../../utility/TransitionState';
 
 class Dropdown extends YeeYeeComponent {
 	public static VALUE = 'value';
+	public static LABEL = 'label';
 
 	public static get observedAttributes(): string[] {
-		return [Dropdown.VALUE];
+		return [Dropdown.VALUE, Dropdown.VALUE];
 	}
 
 	public static Events = Object.freeze({
@@ -23,6 +24,8 @@ class Dropdown extends YeeYeeComponent {
 	protected update(name: string, newValue: string): void {
 		if (name === Dropdown.VALUE) {
 			this.handleValueChange(newValue);
+		} else if (name === Dropdown.LABEL) {
+			this.litRender();
 		}
 	}
 
@@ -60,7 +63,7 @@ class Dropdown extends YeeYeeComponent {
 			</style>
 			<div class="container" @click=${this.handleContainerClick}>
 				<span>${this.selectedOption ? this.selectedOption.innerText : ''}</span>
-				<label>Age</label>
+				<label>${this.get(Dropdown.LABEL)}</label>
 				<yeeyee-icon color="#9e9e9e" name="arrow_drop_down"></yeeyee-icon>
 				${this.renderOptionList()}
 			</div>
